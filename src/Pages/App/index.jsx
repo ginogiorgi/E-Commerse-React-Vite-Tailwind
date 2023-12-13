@@ -5,6 +5,7 @@ import { MyOrder } from "../MyOrder";
 import { MyOrders } from "../MyOrders";
 import { SignIn } from "../SignIn";
 import { Notfound } from "../NotFound";
+import { NavBar } from "../../Components/Navbar";
 
 const AppRoutes = () => {
   let routes = useRoutes([
@@ -12,7 +13,7 @@ const AppRoutes = () => {
     { path: "/my-account", element: <MyAccount /> },
     { path: "/my-order", element: <MyOrder /> },
     { path: "/my-orders", element: <MyOrders /> },
-    { path: "/Sign-in", element: <SignIn /> },
+    { path: "/sign-in", element: <SignIn /> },
     { path: "/*", element: <Notfound /> },
   ]);
 
@@ -22,6 +23,7 @@ const AppRoutes = () => {
 function App() {
   return (
     <BrowserRouter>
+      <NavBar />
       <AppRoutes />
     </BrowserRouter>
   );
