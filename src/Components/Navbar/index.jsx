@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 function NavBar() {
   return (
-    <nav className="flex justify-between items-center fixed z-10 w-full py-5 px-4 text-sm font-light">
+    <nav className="flex justify-between items-center fixed z-10 w-full py-5 px-4 text-sm font-light top-0">
       <ul className="flex items-center gap-3">
         <li className="font-semibold text-lg">
           <NavLink to="/">Shopi</NavLink>
