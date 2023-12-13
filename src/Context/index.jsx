@@ -5,6 +5,7 @@ const ShoppingCartContext = createContext();
 
 function ShoppingCartProvider({ children }) {
   const [count, setCount] = useState(0);
+  console.log(count);
 
   return (
     <ShoppingCartContext.Provider
