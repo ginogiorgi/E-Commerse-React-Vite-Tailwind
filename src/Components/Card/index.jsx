@@ -1,4 +1,10 @@
+import { useContext } from "react";
+import { ShoppingCartContext } from "../../Context";
+
 function Card(data) {
+  const context = useContext(ShoppingCartContext);
+  const cart = document.getElementById("cart");
+
   return (
     <div className="cursor-pointer w-56 h-60 rounded-lg shadow-lg shadow-myGray/40 hover:border">
       <figure className="relative w-full h-4/5">
@@ -10,7 +16,17 @@ function Card(data) {
           src={data.data.image}
           alt="img"
         />
-        <button className="absolute top-2 right-2 bg-myGray w-6 h-6 rounded-full text-black font-bold text-3xl/none flex justify-center items-center pb-[7px] hover:animate-spin-mine">
+        <button
+          className="absolute top-2 right-2 bg-myGray w-6 h-6 rounded-full text-black font-bold text-3xl/none flex justify-center items-center pb-[7px] hover:animate-spin-mine
+        "
+          onClick={() => {
+            context.setCount(context.count + 1);
+            cart.className = "animate-ping";
+            setTimeout(() => {
+              cart.className = "";
+            }, 500);
+          }}
+        >
           +
         </button>
       </figure>
@@ -23,5 +39,3 @@ function Card(data) {
 }
 
 export { Card };
-
-// className="absolute top-2 right-2 bg-myGray w-6 h-6 rounded-full text-black font-bold text-3xl flex justify-center"

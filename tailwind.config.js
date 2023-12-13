@@ -8,6 +8,7 @@ export default {
       },
       animation: {
         "spin-mine": "spin 1s",
+        "ping-mine": "ping 1s",
       },
       gridTemplateColumns: {
         "auto-fill-100": "repeat(auto-fill, 240px)",
