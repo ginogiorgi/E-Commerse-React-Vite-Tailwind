@@ -9,8 +9,8 @@ export default {
       animation: {
         "spin-mine": "spin 1s",
       },
-      padding: {
-        "6px": "6px",
+      gridTemplateColumns: {
+        "auto-fill-100": "repeat(auto-fill, 240px)",
       },
     },
   },
