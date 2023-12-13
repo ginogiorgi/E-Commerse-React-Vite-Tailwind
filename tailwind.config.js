@@ -6,6 +6,12 @@ export default {
       colors: {
         myGray: "#71767B",
       },
+      animation: {
+        "spin-mine": "spin 1s",
+      },
+      padding: {
+        "6px": "6px",
+      },
     },
   },
   plugins: [],

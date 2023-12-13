@@ -39,32 +39,32 @@ function NavBar() {
         </li>
         <li>
           <NavLink
-            to="/furnitures"
+            to="/furniture"
             className={({ isActive }) =>
               isActive ? "underline underline-offset-4" : ""
             }
           >
-            Furnitures
+            Furniture
           </NavLink>
         </li>
         <li>
           <NavLink
-            to="/toys"
+            to="/shoes"
             className={({ isActive }) =>
               isActive ? "underline underline-offset-4" : ""
             }
           >
-            Toys
+            Shoes
           </NavLink>
         </li>
         <li>
           <NavLink
-            to="/others"
+            to="/miscellaneous"
             className={({ isActive }) =>
               isActive ? "underline underline-offset-4" : ""
             }
           >
-            Others
+            Miscellaneous
           </NavLink>
         </li>
       </ul>
