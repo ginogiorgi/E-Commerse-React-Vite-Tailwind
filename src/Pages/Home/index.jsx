@@ -1,14 +1,22 @@
 import { useState, useEffect } from "react";
 import { Layout } from "../../Components/Layout";
 import { Card } from "../../Components/Card";
-import { data } from "autoprefixer";
+import { apiUrl } from "../../api";
 
 function Home() {
   const [items, setItems] = useState(null);
+
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products").then((response) =>
-      response.json().then((data) => setItems(data))
-    );
+    const fetchData = async () => {
+      try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        setItems(data);
+      } catch (error) {
+        console.error(`Oh no, ocurrió un error: ${error}`);
+      }
+    };
+    fetchData();
   }, []);
   return (
     <Layout>
