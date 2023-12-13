@@ -4,20 +4,30 @@ function NavBar() {
   return (
     <nav className="flex justify-between items-center fixed z-10 w-full py-5 px-4 text-sm font-light top-0">
       <ul className="flex items-center gap-3">
-        <li className="font-semibold text-lg">
+        <li className="font-semibold text-lg text-center">
           <NavLink to="/">Shopi</NavLink>
         </li>
-        <li>
+        <li className="text-center">
           <NavLink
-            to="/clothes"
+            to="/men-clothing"
             className={({ isActive }) =>
               isActive ? "underline underline-offset-4" : ""
             }
           >
-            Clothes
+            Men's clothing
           </NavLink>
         </li>
-        <li>
+        <li className="text-center">
+          <NavLink
+            to="/women-clothing"
+            className={({ isActive }) =>
+              isActive ? "underline underline-offset-4" : ""
+            }
+          >
+            Women's clothing
+          </NavLink>
+        </li>
+        <li className="text-center">
           <NavLink
             to="/electronics"
             className={({ isActive }) =>
@@ -27,42 +37,22 @@ function NavBar() {
             Electronics
           </NavLink>
         </li>
-        <li>
+        <li className="text-center">
           <NavLink
-            to="/furniture"
+            to="/jewelry"
             className={({ isActive }) =>
               isActive ? "underline underline-offset-4" : ""
             }
           >
-            Furniture
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/shoes"
-            className={({ isActive }) =>
-              isActive ? "underline underline-offset-4" : ""
-            }
-          >
-            Shoes
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/miscellaneous"
-            className={({ isActive }) =>
-              isActive ? "underline underline-offset-4" : ""
-            }
-          >
-            Miscellaneous
+            Jewelery
           </NavLink>
         </li>
       </ul>
       <ul className="flex items-center gap-3">
-        <li className="text-myGray cursor-default">
+        <li className="text-myGray cursor-default text-center">
           ginorubengiorgi@gmail.com
         </li>
-        <li>
+        <li className="text-center">
           <NavLink
             to="/my-account"
             className={({ isActive }) =>
@@ -72,7 +62,7 @@ function NavBar() {
             My Account
           </NavLink>
         </li>
-        <li>
+        <li className="text-center">
           <NavLink
             to="/sign-in"
             className={({ isActive }) =>
