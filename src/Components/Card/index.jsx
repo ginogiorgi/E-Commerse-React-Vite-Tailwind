@@ -1,7 +1,7 @@
 function Card() {
   return (
-    <div className=" cursor-pointer w-56 h-60 border rounded-lg">
-      <figure className="relative mb-2 w-full h-4/5">
+    <div className=" cursor-pointer w-56 h-60 border rounded-lg shadow-lg shadow-myGray/40">
+      <figure className="relative w-full h-4/5">
         <span className="absolute bottom-0 left-0 bg-myGray rounded-lg text-black m-2 px-2">
           Electronics
         </span>
@@ -14,7 +14,7 @@ function Card() {
           +
         </button>
       </figure>
-      <p className="flex justify-between">
+      <p className="flex justify-between w-full h-1/5 items-center p-3 pb-4">
         <span className="text-sm font-light">Headphones</span>
         <span className="text-sm font-medium">$300</span>
       </p>
