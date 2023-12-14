@@ -13,7 +13,7 @@ function Card(data) {
           {data.data.category}
         </span>
         <img
-          className="w-full h-full object-cover rounded-t-lg"
+          className="w-full h-full object-contain rounded-t-lg bg-white"
           src={data.data.image}
           alt="img"
         />
