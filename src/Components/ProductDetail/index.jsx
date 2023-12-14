@@ -18,7 +18,7 @@ function ProductDetail() {
             context.setIsProductDetailOpen(false);
           }}
         >
-          <XMarkIcon className="h-8 w-8 text-white stroke-white" />
+          <XMarkIcon className="h-8 w-8 text-white stroke-white drop-shadow-[0px_0px_3px_rgba(255,255,255,1)] hover:text-[#FF0000] hover:stroke-[#FF0000] hover:drop-shadow-[0px_0px_5px_rgba(200,0,0,1)]" />
         </div>
       </div>
     </aside>
