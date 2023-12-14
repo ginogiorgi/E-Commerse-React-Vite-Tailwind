@@ -8,12 +8,12 @@ function NavBar() {
   const context = useContext(ShoppingCartContext);
 
   return (
-    <nav className="flex justify-between items-center z-10 w-full py-5 px-4 text-sm font-light top-0 ">
+    <nav className="flex justify-between items-center z-10 w-full py-1 px-4 text-sm font-light top-0 ">
       <ul className="flex items-center gap-3">
-        <li className="font-semibold text-lg text-center">
-          <NavLink to="/">
-            {" "}
-            <ShoppingBagIcon className="h-10 w-10 text-white" />
+        <li className="font-semibold text-lg">
+          <NavLink to="/" className="">
+            <ShoppingBagIcon className="h-10 text-white block mr-auto ml-auto w-4/5" />
+            <p>Shopify</p>
           </NavLink>
         </li>
         <li className="text-center">
