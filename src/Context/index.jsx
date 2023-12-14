@@ -5,13 +5,15 @@ const ShoppingCartContext = createContext();
 
 function ShoppingCartProvider({ children }) {
   const [count, setCount] = useState(0);
-  console.log(count);
+  const [isProductDetailOpen, setIsProductDetailOpen] = useState(false);
 
   return (
     <ShoppingCartContext.Provider
       value={{
         count,
         setCount,
+        setIsProductDetailOpen,
+        isProductDetailOpen,
       }}
     >
       {children}

@@ -7,7 +7,12 @@ function Card(data) {
   const cart = document.getElementById("cart");
 
   return (
-    <div className="cursor-pointer w-56 h-60 rounded-lg shadow-lg shadow-myGray/40 hover:border">
+    <div
+      className="cursor-pointer w-56 h-60 rounded-lg shadow-lg shadow-myGray/40 hover:border"
+      onClick={() => {
+        context.setIsProductDetailOpen(true);
+      }}
+    >
       <figure className="relative w-full h-4/5">
         <span className="absolute bottom-0 left-0 bg-myGray/40 rounded-lg font-semibold text-black m-2 px-2">
           {data.data.category}
