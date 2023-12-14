@@ -1,6 +1,8 @@
 import { NavLink } from "react-router-dom";
 import { ShoppingCartContext } from "../../Context";
 import { useContext } from "react";
+import { ShoppingCartIcon } from "@heroicons/react/24/solid";
+import { ShoppingBagIcon } from "@heroicons/react/24/solid";
 
 function NavBar() {
   const context = useContext(ShoppingCartContext);
@@ -9,7 +11,10 @@ function NavBar() {
     <nav className="flex justify-between items-center z-10 w-full py-5 px-4 text-sm font-light top-0 ">
       <ul className="flex items-center gap-3">
         <li className="font-semibold text-lg text-center">
-          <NavLink to="/">Shopi</NavLink>
+          <NavLink to="/">
+            {" "}
+            <ShoppingBagIcon className="h-10 w-10 text-white" />
+          </NavLink>
         </li>
         <li className="text-center">
           <NavLink
@@ -76,7 +81,9 @@ function NavBar() {
             Sign In
           </NavLink>
         </li>
-        <li>🛒</li>
+        <li>
+          <ShoppingCartIcon className="h-6 w-6 text-white" />
+        </li>
         <li id="cart">{context.count}</li>
       </ul>
     </nav>
