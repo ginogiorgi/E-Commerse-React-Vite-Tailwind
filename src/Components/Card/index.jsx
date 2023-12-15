@@ -45,6 +45,7 @@ function Card(data) {
             cart.className =
               "cursor-pointer flex gap-3 items-center animate-pingSlow";
             getNewCartProduct(data.data);
+            context.setItemQuantity(++context.itemQuantity);
           }}
         >
           <PlusIcon className="h-6 w-6 text-black stroke-black" />

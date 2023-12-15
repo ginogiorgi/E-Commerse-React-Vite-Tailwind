@@ -8,6 +8,7 @@ function ShoppingCartProvider({ children }) {
   const [isProductCartOpen, setIsProductCartOpen] = useState(false);
   const [productToShow, setProductToShow] = useState({});
   const [cartProducts, setCartProducts] = useState([]);
+  const [itemQuantity, setItemQuantity] = useState(0);
 
   return (
     <ShoppingCartContext.Provider
@@ -20,6 +21,8 @@ function ShoppingCartProvider({ children }) {
         setCartProducts,
         isProductCartOpen,
         setIsProductCartOpen,
+        itemQuantity,
+        setItemQuantity,
       }}
     >
       {children}

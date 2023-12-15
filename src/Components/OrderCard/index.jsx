@@ -20,8 +20,9 @@ function OrderCard(props) {
           <p className="text-sm font-light">{props.props.quantity}</p>
           <button
             onClick={() => {
+              context.setItemQuantity(context.itemQuantity - 1);
               props.props.quantity--;
-              this.forceUpdate();
+              console.log(context.itemQuantity);
             }}
           >
             -
