@@ -11,6 +11,7 @@ function Card(data) {
       className="cursor-pointer w-56 h-60 rounded-lg shadow-lg shadow-myGray/40 hover:border"
       onClick={() => {
         context.setIsProductDetailOpen(true);
+        context.setProductToShow(data.data);
       }}
     >
       <figure className="relative w-full h-4/5">
