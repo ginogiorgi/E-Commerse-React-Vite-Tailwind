@@ -84,7 +84,7 @@ function NavBar() {
         <li>
           <ShoppingCartIcon className="h-6 w-6 text-white" />
         </li>
-        <li id="cart">{context.count}</li>
+        <li id="cart">{context.cartProducts.length}</li>
       </ul>
     </nav>
   );
