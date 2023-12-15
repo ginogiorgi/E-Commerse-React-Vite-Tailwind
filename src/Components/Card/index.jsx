@@ -12,7 +12,6 @@ function Card(data) {
       onClick={() => {
         context.setIsProductDetailOpen(true);
         context.setProductToShow(data.data);
-        console.log(context.cartProducts);
       }}
     >
       <figure className="relative w-full h-4/5">
@@ -26,7 +25,8 @@ function Card(data) {
         />
         <button
           className="absolute top-2 right-2 bg-myGray rounded-full hover:animate-spin-mine"
-          onClick={() => {
+          onClick={(event) => {
+            event.stopPropagation();
             cart.className = "animate-ping";
             setTimeout(() => {
               cart.className = "";

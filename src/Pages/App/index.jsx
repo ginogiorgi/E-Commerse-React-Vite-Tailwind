@@ -7,6 +7,7 @@ import { SignIn } from "../SignIn";
 import { Notfound } from "../NotFound";
 import { NavBar } from "../../Components/Navbar";
 import { ShoppingCartProvider } from "../../Context";
+import { CheckoutSideMenu } from "../../Components/CheckoutSideMenu";
 
 const AppRoutes = () => {
   let routes = useRoutes([
@@ -26,6 +27,7 @@ function App() {
     <ShoppingCartProvider>
       <BrowserRouter>
         <NavBar />
+        <CheckoutSideMenu />
         <AppRoutes />
       </BrowserRouter>
     </ShoppingCartProvider>
