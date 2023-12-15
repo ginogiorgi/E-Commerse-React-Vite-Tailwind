@@ -8,7 +8,7 @@ function NavBar() {
   const context = useContext(ShoppingCartContext);
 
   return (
-    <nav className="flex justify-between items-center z-10 w-full py-1 px-4 text-sm font-light top-0 ">
+    <nav className="flex justify-between z-10 w-full py-1 px-4 text-sm font-light top-0 ">
       <ul className="flex items-center gap-3">
         <li className="font-semibold text-lg">
           <NavLink to="/" className="">
@@ -81,10 +81,17 @@ function NavBar() {
             Sign In
           </NavLink>
         </li>
-        <li>
-          <ShoppingCartIcon className="h-6 w-6 text-white" />
+        <li
+          onClick={() => {
+            cart.className = "cursor-pointer flex gap-3 items-center";
+            context.setIsProductCartOpen(true);
+          }}
+          className="cursor-pointer flex gap-3 items-center"
+          id="cart"
+        >
+          <ShoppingCartIcon className="h-6 w-6 text-white cursor-pointer" />
+          {context.cartProducts.length}
         </li>
-        <li id="cart">{context.cartProducts.length}</li>
       </ul>
     </nav>
   );
