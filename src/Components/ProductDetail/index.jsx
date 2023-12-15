@@ -4,6 +4,13 @@ import { ShoppingCartContext } from "../../Context";
 
 function ProductDetail() {
   const context = useContext(ShoppingCartContext);
+  const layout = document.getElementById("Layout");
+
+  if (context.isProductDetailOpen === true) {
+    layout.className = "flex flex-col mt-20 left-0 w-4/6";
+  } else {
+    layout.className = "flex flex-col mt-20 left-0";
+  }
 
   return (
     <aside
