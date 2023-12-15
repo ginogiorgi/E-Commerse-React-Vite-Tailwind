@@ -1,6 +1,6 @@
+import { XMarkIcon } from "@heroicons/react/24/solid";
 import { useContext } from "react";
 import { ShoppingCartContext } from "../../Context";
-import { XMarkIcon } from "@heroicons/react/24/solid";
 
 function OrderCard(props) {
   const context = useContext(ShoppingCartContext);
@@ -16,6 +16,17 @@ function OrderCard(props) {
           />
         </figure>
         <p className="text-sm font-light">{props.props.title}</p>
+        <div>
+          <p className="text-sm font-light">{props.props.quantity}</p>
+          <button
+            onClick={() => {
+              props.props.quantity--;
+              this.forceUpdate();
+            }}
+          >
+            -
+          </button>
+        </div>
       </div>
       <div>
         <p className="text-lg font-medium">{props.props.price}</p>

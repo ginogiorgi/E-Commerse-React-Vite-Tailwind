@@ -6,6 +6,21 @@ function Card(data) {
   const context = useContext(ShoppingCartContext);
   const cart = document.getElementById("cart");
 
+  function getNewCartProduct(productData) {
+    const foundProduct = context.cartProducts.find(
+      (product) => product.id === productData.id
+    );
+
+    if (!foundProduct) {
+      context.setCartProducts([
+        ...context.cartProducts,
+        { ...productData, quantity: 1 },
+      ]);
+    } else {
+      foundProduct.quantity++;
+    }
+  }
+
   return (
     <div
       className="cursor-pointer w-56 h-60 rounded-lg shadow-lg shadow-myGray/40 hover:border"
@@ -29,7 +44,7 @@ function Card(data) {
             event.stopPropagation();
             cart.className =
               "cursor-pointer flex gap-3 items-center animate-pingSlow";
-            context.setCartProducts([...context.cartProducts, data.data]);
+            getNewCartProduct(data.data);
           }}
         >
           <PlusIcon className="h-6 w-6 text-black stroke-black" />
