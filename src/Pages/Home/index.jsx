@@ -21,7 +21,7 @@ function Home() {
   }, []);
   return (
     <Layout>
-      <div className="grid gap-6 m-5 grid-cols-auto-fill-100 w-full justify-center">
+      <div className="grid gap-6 grid-cols-auto-fill-100 w-full justify-center">
         {items?.map((item) => {
           return <Card key={item.id} data={item} />;
         })}

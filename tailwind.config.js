@@ -13,6 +13,9 @@ export default {
       gridTemplateColumns: {
         "auto-fill-100": "repeat(auto-fill, 240px)",
       },
+      width: {
+        layoutOpenDetail: "calc(100% - 380px)",
+      },
     },
   },
   plugins: [],

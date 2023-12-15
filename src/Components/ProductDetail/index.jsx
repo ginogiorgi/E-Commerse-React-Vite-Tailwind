@@ -6,9 +6,9 @@ function ProductDetail() {
   const context = useContext(ShoppingCartContext);
   const layout = document.getElementById("Layout");
 
-  if (context.isProductDetailOpen === true) {
-    layout.className = "flex flex-col mt-20 left-0 w-4/6";
-  } else {
+  if (context.isProductDetailOpen === true && layout) {
+    layout.className = "flex flex-col mt-20 left-0 w-layoutOpenDetail";
+  } else if (layout) {
     layout.className = "flex flex-col mt-20 left-0";
   }
 
