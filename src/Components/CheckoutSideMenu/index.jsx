@@ -11,12 +11,26 @@ function CheckoutSideMenu() {
     );
     context.setCartProducts(filteredProducts);
   }
+  function handleCheckout() {
+    const orderToAdd = {
+      date: new Date().toDateString(),
+      products: context.cartProducts,
+      totalProducts: context.itemQuantity,
+      totalPrice: context.itemsPrice,
+    };
+
+    context.setOrder([...context.order, orderToAdd]);
+    context.setCartProducts([]);
+    context.setItemQuantity(0);
+    context.setItemsPrice(0);
+    context.setIsProductCartOpen(false);
+  }
 
   return (
     <aside
       className={`${
         context.isProductCartOpen ? "" : "hidden"
-      } w-[360px] h-[552px] m-2 top-[68px] flex-col absolute right-0 rounded-lg bg-black shadow-[0_0_15px_7px] shadow-myGray/40 z-20`}
+      } w-[360px] h-[628px] m-2 top-[68px] flex-col absolute right-0 rounded-lg bg-black shadow-[0_0_15px_7px] shadow-myGray/40 z-20`}
     >
       <h2 className="font-medium text-xl p-6 text-center underline underline-offset-2">
         My Order
@@ -27,17 +41,23 @@ function CheckoutSideMenu() {
         ))}
       </div>
       <div className="px-6">
-        <p className="flex justify-between items-center mb-2">
+        <p className="flex justify-between items-center mb-1">
           <span className="font-light">Total Products: </span>
           <span className="font-medium text-2xl">{context.itemQuantity}</span>
         </p>
-        <p className="flex justify-between items-center">
+        <p className="flex justify-between items-center mt-1">
           <span className="font-light">Total Price: </span>
           <span className="font-medium text-2xl">
             $ {context.itemsPrice.toFixed(2)}
           </span>
         </p>
       </div>
+      <button
+        className="bg-white py-3 text-black rounded-lg w-5/6 m-auto flex justify-center mt-5 font-medium text-2xl"
+        onClick={() => handleCheckout()}
+      >
+        Checkout
+      </button>
     </aside>
   );
 }
