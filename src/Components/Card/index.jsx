@@ -42,8 +42,10 @@ function Card(data) {
           className="absolute top-2 right-2 bg-myGray rounded-full hover:animate-spin-mine"
           onClick={(event) => {
             event.stopPropagation();
-            cart.className =
-              "cursor-pointer flex gap-3 items-center animate-pingSlow";
+            cart.className = `cursor-pointer flex gap-3 items-center ${
+              context.isProductCartOpen ? "" : "animate-pingSlow"
+            }`;
+
             getNewCartProduct(data.data);
             context.setItemQuantity(++context.itemQuantity);
           }}

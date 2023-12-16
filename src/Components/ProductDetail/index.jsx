@@ -23,7 +23,7 @@ function ProductDetail() {
           context.setIsProductDetailOpen(false);
         }}
       >
-        <XMarkIcon className="h-8 w-8 text-black stroke-black drop-shadow-[0px_0px_3px_rgba(0,0,0,1)] hover:text-[#FF0000] hover:stroke-[#FF0000] hover:drop-shadow-[0px_0px_5px_rgba(200,0,0,1)] absolute z-10 right-0" />
+        <XMarkIcon className="h-8 w-8 text-black stroke-black drop-shadow-[0px_0px_3px_rgba(0,0,0,1)] hover:text-[#FF0000] hover:stroke-[#FF0000] hover:drop-shadow-[0px_0px_5px_rgba(200,0,0,1)] absolute z-10 right-0 cursor-pointer" />
       </div>
       <figure className="bg-white relative w-full h-3/5 rounded-t-lg">
         <img
