@@ -21,17 +21,32 @@ function CheckoutSideMenu() {
       <h2 className="font-medium text-xl p-6 text-center underline underline-offset-2">
         My Order
       </h2>
-      <div className="h-[408px] overflow-y-auto">
+      <div className="h-[390px] overflow-y-auto">
         {context.cartProducts.map((item) => (
           <OrderCard props={item} handleDelete={handleDelete} key={item.id} />
         ))}
       </div>
-      <h2 className="font-medium text-lg p-2 flex justify-between mb-4">
-        <p>Total Products: {context.itemQuantity}</p>
-        <p>Total Price: $ {context.itemsPrice.toFixed(2)}</p>
-      </h2>
+      <div className="px-6">
+        <p className="flex justify-between items-center mb-2">
+          <span className="font-light">Total Products: </span>
+          <span className="font-medium text-2xl">{context.itemQuantity}</span>
+        </p>
+        <p className="flex justify-between items-center">
+          <span className="font-light">Total Price: </span>
+          <span className="font-medium text-2xl">
+            $ {context.itemsPrice.toFixed(2)}
+          </span>
+        </p>
+      </div>
     </aside>
   );
 }
 
 export { CheckoutSideMenu };
+
+{
+  /* <p className="font-medium text-lg p-2 flex justify-between mb-4">
+<span>Total Products: {context.itemQuantity}</span>
+<span>Total Price: $ {context.itemsPrice.toFixed(2)}</span>
+</p> */
+}
