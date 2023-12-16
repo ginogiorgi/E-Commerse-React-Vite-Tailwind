@@ -1,8 +1,6 @@
-import { XMarkIcon } from "@heroicons/react/24/solid";
-import { MinusSmallIcon } from "@heroicons/react/24/solid";
+import { XMarkIcon, PlusIcon, MinusSmallIcon } from "@heroicons/react/24/solid";
 import { useContext } from "react";
 import { ShoppingCartContext } from "../../Context";
-import { PlusIcon } from "@heroicons/react/24/solid";
 
 function OrderCard(props) {
   const context = useContext(ShoppingCartContext);
