@@ -8,7 +8,7 @@ function OrderCard(props) {
   const context = useContext(ShoppingCartContext);
 
   return (
-    <div className="flex justify-between items-center p-2 mb-2">
+    <div className="flex justify-between items-center p-2 border-y border-myGray rounded-lg">
       <div className="flex">
         <figure className="w-20 h-20 bg-white rounded-lg">
           <img
@@ -31,7 +31,7 @@ function OrderCard(props) {
               context.setItemsPrice(context.itemsPrice - props.props.price);
             }}
           >
-            <MinusSmallIcon className="h-4 w-4 text-white stroke-white drop-shadow-[0px_0px_3px_rgba(255,255,255,1)] hover:text-[#FF0000] hover:stroke-[#FF0000] hover:drop-shadow-[0px_0px_5px_rgba(200,0,0,1)]" />
+            <MinusSmallIcon className="h-4 w-4 text-white stroke-white hover:text-[#FF0000] hover:stroke-[#FF0000]" />
           </div>
           <p className="text-lg font-medium">{props.props.quantity}</p>
           <div
@@ -42,7 +42,7 @@ function OrderCard(props) {
               context.setItemsPrice(context.itemsPrice + props.props.price);
             }}
           >
-            <PlusIcon className="h-4 w-4 text-white stroke-white drop-shadow-[0px_0px_3px_rgba(255,255,255,1)] hover:text-[#008000] hover:stroke-[#008000] hover:drop-shadow-[0px_0px_5px_rgba(0,128,0,1)]" />
+            <PlusIcon className="h-4 w-4 text-white stroke-white hover:text-[#008000] hover:stroke-[#008000]" />
           </div>
         </div>
       </div>
@@ -51,7 +51,7 @@ function OrderCard(props) {
           ${(props.props.price * props.props.quantity).toFixed(2)}
         </p>
         <div className="cursor-pointer w-8">
-          <XMarkIcon className="h-8 w-8 text-white stroke-white drop-shadow-[0px_0px_3px_rgba(255,255,255,1)] hover:text-[#FF0000] hover:stroke-[#FF0000] hover:drop-shadow-[0px_0px_5px_rgba(200,0,0,1)]" />
+          <XMarkIcon className="h-8 w-8 text-white stroke-white hover:text-[#FF0000] hover:stroke-[#FF0000]" />
         </div>
       </div>
     </div>
