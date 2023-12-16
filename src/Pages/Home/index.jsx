@@ -19,7 +19,6 @@ function Home() {
     };
     fetchData();
   }, []);
-  console.log(items);
   return (
     <Layout>
       <div className="grid gap-6 grid-cols-auto-fill-100 w-full justify-center">

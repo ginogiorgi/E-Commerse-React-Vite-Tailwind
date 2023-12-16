@@ -48,7 +48,12 @@ function OrderCard(props) {
         <p className="text-lg font-medium w-16">
           ${(props.props.price * props.props.quantity).toFixed(2)}
         </p>
-        <div className="cursor-pointer w-8">
+        <div
+          className="cursor-pointer w-8"
+          onClick={() => {
+            props.handleDelete(props.props.id);
+          }}
+        >
           <XMarkIcon className="h-8 w-8 text-white stroke-white hover:text-[#FF0000] hover:stroke-[#FF0000]" />
         </div>
       </div>

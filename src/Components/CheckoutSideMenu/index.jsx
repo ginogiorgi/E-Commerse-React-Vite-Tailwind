@@ -5,6 +5,13 @@ import { OrderCard } from "../OrderCard";
 function CheckoutSideMenu() {
   const context = useContext(ShoppingCartContext);
 
+  function handleDelete(id) {
+    const filteredProducts = context.cartProducts.filter(
+      (product) => product.id != id
+    );
+    context.setCartProducts(filteredProducts);
+  }
+
   return (
     <aside
       className={`${
@@ -16,7 +23,7 @@ function CheckoutSideMenu() {
       </h2>
       <div className="h-[408px] overflow-y-auto">
         {context.cartProducts.map((item) => (
-          <OrderCard props={item} key={item.id} />
+          <OrderCard props={item} handleDelete={handleDelete} key={item.id} />
         ))}
       </div>
       <h2 className="font-medium text-lg p-2 flex justify-between mb-4">
