@@ -17,6 +17,10 @@ function CheckoutSideMenu() {
           <OrderCard props={item} key={item.id} />
         ))}
       </div>
+      <h2 className="font-medium text-lg p-2 text-center flex justify-between mb-4">
+        <p>Total Products: {context.itemQuantity}</p>
+        <p>Total Price: $ {context.itemsPrice.toFixed(2)}</p>
+      </h2>
     </aside>
   );
 }

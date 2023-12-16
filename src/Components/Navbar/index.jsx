@@ -10,9 +10,9 @@ function NavBar() {
   return (
     <nav className="flex justify-between z-10 w-full py-1 px-4 text-sm font-light top-0 ">
       <ul className="flex items-center gap-3">
-        <li className="font-semibold text-lg">
+        <li className="font-semibold text-lg text-blue-400">
           <NavLink to="/" className="">
-            <ShoppingBagIcon className="h-10 text-white block mr-auto ml-auto w-4/5" />
+            <ShoppingBagIcon className="h-10 text-blue-400 block mr-auto ml-auto w-4/5" />
             <p>Shopify</p>
           </NavLink>
         </li>
@@ -89,7 +89,7 @@ function NavBar() {
           className="cursor-pointer flex gap-3 items-center"
           id="cart"
         >
-          <ShoppingCartIcon className="h-6 w-6 text-white cursor-pointer" />
+          <ShoppingCartIcon className="h-6 w-6 text-blue-400 cursor-pointer" />
           {context.cartProducts.length}
         </li>
       </ul>

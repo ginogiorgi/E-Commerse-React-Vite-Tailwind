@@ -28,6 +28,7 @@ function OrderCard(props) {
             onClick={() => {
               context.setItemQuantity(context.itemQuantity - 1);
               props.props.quantity--;
+              context.setItemsPrice(context.itemsPrice - props.props.price);
             }}
           >
             <MinusSmallIcon className="h-4 w-4 text-white stroke-white drop-shadow-[0px_0px_3px_rgba(255,255,255,1)] hover:text-[#FF0000] hover:stroke-[#FF0000] hover:drop-shadow-[0px_0px_5px_rgba(200,0,0,1)]" />
@@ -38,6 +39,7 @@ function OrderCard(props) {
             onClick={() => {
               context.setItemQuantity(context.itemQuantity + 1);
               props.props.quantity++;
+              context.setItemsPrice(context.itemsPrice + props.props.price);
             }}
           >
             <PlusIcon className="h-4 w-4 text-white stroke-white drop-shadow-[0px_0px_3px_rgba(255,255,255,1)] hover:text-[#008000] hover:stroke-[#008000] hover:drop-shadow-[0px_0px_5px_rgba(0,128,0,1)]" />
@@ -46,7 +48,7 @@ function OrderCard(props) {
       </div>
       <div className="flex items-center gap-2 text-left">
         <p className="text-lg font-medium w-16">
-          ${props.props.price * props.props.quantity}
+          ${(props.props.price * props.props.quantity).toFixed(2)}
         </p>
         <div className="cursor-pointer w-8">
           <XMarkIcon className="h-8 w-8 text-white stroke-white drop-shadow-[0px_0px_3px_rgba(255,255,255,1)] hover:text-[#FF0000] hover:stroke-[#FF0000] hover:drop-shadow-[0px_0px_5px_rgba(200,0,0,1)]" />
