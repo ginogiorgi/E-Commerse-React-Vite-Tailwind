@@ -58,9 +58,6 @@ function NavBar() {
         </li>
       </ul>
       <ul className="flex items-center gap-3">
-        <li className="text-myGray cursor-default text-center">
-          ginorubengiorgi@gmail.com
-        </li>
         <li className="text-center">
           <NavLink
             to="/my-account"
