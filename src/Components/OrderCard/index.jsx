@@ -6,7 +6,7 @@ function OrderCard(props) {
   const context = useContext(ShoppingCartContext);
 
   return (
-    <div className="flex justify-between items-center p-2 border-y border-myGray rounded-lg">
+    <div className="flex justify-between items-center p-2 border-y border-myGray/25">
       <div className="flex">
         <figure className="w-20 h-20 bg-white rounded-lg">
           <img
@@ -27,6 +27,9 @@ function OrderCard(props) {
               context.setItemQuantity(context.itemQuantity - 1);
               props.props.quantity--;
               context.setItemsPrice(context.itemsPrice - props.props.price);
+              props.props.quantity === 0
+                ? props.handleDelete(props.props.id)
+                : "";
             }}
           >
             <MinusSmallIcon className="h-4 w-4 text-white stroke-white hover:text-[#FF0000] hover:stroke-[#FF0000]" />
