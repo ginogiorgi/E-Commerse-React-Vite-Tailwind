@@ -51,6 +51,12 @@ function OrderCard(props) {
         <div
           className="cursor-pointer w-8"
           onClick={() => {
+            context.setItemsPrice(
+              context.itemsPrice - props.props.price * props.props.quantity
+            );
+            context.setItemQuantity(
+              context.itemQuantity - props.props.quantity
+            );
             props.handleDelete(props.props.id);
           }}
         >
