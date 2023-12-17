@@ -5,6 +5,8 @@ import { ShoppingCartContext } from "../../Context";
 function OrderCard(props) {
   const context = useContext(ShoppingCartContext);
   let renderXMarkIcon;
+  let renderPlusIcon;
+  let renderMinusSmallIcon;
 
   if (props.handleDelete) {
     renderXMarkIcon = (
@@ -19,6 +21,31 @@ function OrderCard(props) {
         }}
       >
         <XMarkIcon className="h-8 w-8 text-white stroke-white hover:text-[#FF0000] hover:stroke-[#FF0000]" />
+      </div>
+    );
+    renderPlusIcon = (
+      <div
+        className="cursor-pointer"
+        onClick={() => {
+          context.setItemQuantity(context.itemQuantity + 1);
+          props.props.quantity++;
+          context.setItemsPrice(context.itemsPrice + props.props.price);
+        }}
+      >
+        <PlusIcon className="h-4 w-4 text-white stroke-white hover:text-[#008000] hover:stroke-[#008000]" />
+      </div>
+    );
+    renderMinusSmallIcon = (
+      <div
+        className="cursor-pointer"
+        onClick={() => {
+          context.setItemQuantity(context.itemQuantity - 1);
+          props.props.quantity--;
+          context.setItemsPrice(context.itemsPrice - props.props.price);
+          props.props.quantity === 0 ? props.handleDelete(props.props.id) : "";
+        }}
+      >
+        <MinusSmallIcon className="h-4 w-4 text-white stroke-white hover:text-[#FF0000] hover:stroke-[#FF0000]" />
       </div>
     );
   }
@@ -39,30 +66,9 @@ function OrderCard(props) {
           {props.props.title}
         </p>
         <div className="flex bottom-0 items-center justify-center gap-1 mb-2">
-          <div
-            className="cursor-pointer"
-            onClick={() => {
-              context.setItemQuantity(context.itemQuantity - 1);
-              props.props.quantity--;
-              context.setItemsPrice(context.itemsPrice - props.props.price);
-              props.props.quantity === 0
-                ? props.handleDelete(props.props.id)
-                : "";
-            }}
-          >
-            <MinusSmallIcon className="h-4 w-4 text-white stroke-white hover:text-[#FF0000] hover:stroke-[#FF0000]" />
-          </div>
+          {renderMinusSmallIcon}
           <p className="text-lg font-medium">{props.props.quantity}</p>
-          <div
-            className="cursor-pointer"
-            onClick={() => {
-              context.setItemQuantity(context.itemQuantity + 1);
-              props.props.quantity++;
-              context.setItemsPrice(context.itemsPrice + props.props.price);
-            }}
-          >
-            <PlusIcon className="h-4 w-4 text-white stroke-white hover:text-[#008000] hover:stroke-[#008000]" />
-          </div>
+          {renderPlusIcon}
         </div>
       </div>
       <div className="flex items-center gap-2 text-left">
