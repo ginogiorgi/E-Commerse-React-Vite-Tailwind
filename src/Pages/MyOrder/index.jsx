@@ -25,12 +25,14 @@ function MyOrder() {
       <div className="px-6">
         <p className="flex justify-between items-center mb-1">
           <span className="font-light">Total Products: </span>
-          <span className="font-medium text-2xl">{context.itemQuantity}</span>
+          <span className="font-medium text-2xl">
+            {context.order[context.order.length - 1].totalProducts}
+          </span>
         </p>
         <p className="flex justify-between items-center mt-1">
           <span className="font-light">Total Price: </span>
           <span className="font-medium text-2xl">
-            $ {context.itemsPrice.toFixed(2)}
+            $ {context.order[context.order.length - 1].totalPrice.toFixed(2)}
           </span>
         </p>
       </div>
