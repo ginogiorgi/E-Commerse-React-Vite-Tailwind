@@ -14,7 +14,7 @@ function CheckoutSideMenu() {
   }
   function handleCheckout() {
     const orderToAdd = {
-      date: new Date().toDateString(),
+      date: new Date().toLocaleDateString(),
       products: context.cartProducts,
       totalProducts: context.itemQuantity,
       totalPrice: context.itemsPrice,
