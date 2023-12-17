@@ -4,6 +4,24 @@ import { ShoppingCartContext } from "../../Context";
 
 function OrderCard(props) {
   const context = useContext(ShoppingCartContext);
+  let renderXMarkIcon;
+
+  if (props.handleDelete) {
+    renderXMarkIcon = (
+      <div
+        className="cursor-pointer w-8"
+        onClick={() => {
+          context.setItemsPrice(
+            context.itemsPrice - props.props.price * props.props.quantity
+          );
+          context.setItemQuantity(context.itemQuantity - props.props.quantity);
+          props.handleDelete(props.props.id);
+        }}
+      >
+        <XMarkIcon className="h-8 w-8 text-white stroke-white hover:text-[#FF0000] hover:stroke-[#FF0000]" />
+      </div>
+    );
+  }
 
   return (
     <div className="flex justify-between items-center p-2 border-y border-myGray/25">
@@ -51,20 +69,7 @@ function OrderCard(props) {
         <p className="text-lg font-medium w-16">
           ${(props.props.price * props.props.quantity).toFixed(2)}
         </p>
-        <div
-          className="cursor-pointer w-8"
-          onClick={() => {
-            context.setItemsPrice(
-              context.itemsPrice - props.props.price * props.props.quantity
-            );
-            context.setItemQuantity(
-              context.itemQuantity - props.props.quantity
-            );
-            props.handleDelete(props.props.id);
-          }}
-        >
-          <XMarkIcon className="h-8 w-8 text-white stroke-white hover:text-[#FF0000] hover:stroke-[#FF0000]" />
-        </div>
+        {renderXMarkIcon}
       </div>
     </div>
   );

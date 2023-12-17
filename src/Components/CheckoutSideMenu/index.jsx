@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { ShoppingCartContext } from "../../Context";
 import { OrderCard } from "../OrderCard";
+import { Link } from "react-router-dom";
 
 function CheckoutSideMenu() {
   const context = useContext(ShoppingCartContext);
@@ -52,12 +53,14 @@ function CheckoutSideMenu() {
           </span>
         </p>
       </div>
-      <button
-        className="bg-white py-3 text-black rounded-lg w-5/6 m-auto flex justify-center mt-5 font-medium text-2xl"
-        onClick={() => handleCheckout()}
-      >
-        Checkout
-      </button>
+      <Link to="/my-orders/last">
+        <button
+          className="bg-white py-3 text-black rounded-lg w-5/6 m-auto flex justify-center mt-5 font-medium text-2xl"
+          onClick={() => handleCheckout()}
+        >
+          Checkout
+        </button>
+      </Link>
     </aside>
   );
 }
