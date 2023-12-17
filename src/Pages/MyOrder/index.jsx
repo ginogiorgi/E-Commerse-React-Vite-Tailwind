@@ -7,6 +7,13 @@ import { Link } from "react-router-dom";
 
 function MyOrder() {
   const context = useContext(ShoppingCartContext);
+  let index = window.location.pathname.substring(
+    window.location.pathname.lastIndexOf("/") + 1
+  );
+
+  if (index === "last") {
+    index = context.order?.length - 1;
+  }
 
   return (
     <Layout>
@@ -18,7 +25,7 @@ function MyOrder() {
         <h1>My Order</h1>
       </div>
       <div className="h-auto w-80">
-        {context.order?.slice(-1)[0].products.map((item) => (
+        {context.order?.[index]?.products.map((item) => (
           <OrderCard props={item} key={item.id} />
         ))}
       </div>
