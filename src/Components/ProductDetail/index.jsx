@@ -4,12 +4,14 @@ import { ShoppingCartContext } from "../../Context";
 
 function ProductDetail() {
   const context = useContext(ShoppingCartContext);
-  const layout = document.getElementById("Layout");
+  const cardsContainer = document.getElementById("CardsContainer");
 
-  if (context.isProductDetailOpen === true && layout) {
-    layout.className = "flex flex-col mt-20 left-0 w-layoutOpenDetail";
-  } else if (layout) {
-    layout.className = "flex flex-col mt-20 left-0";
+  if (context.isProductDetailOpen === true && cardsContainer) {
+    cardsContainer.className =
+      "grid gap-6 grid-cols-auto-fill-100 w-layoutOpenDetail justify-center";
+  } else if (cardsContainer) {
+    cardsContainer.className =
+      "grid gap-6 grid-cols-auto-fill-100 w-full justify-center";
   }
 
   return (

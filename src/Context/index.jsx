@@ -1,5 +1,6 @@
 import { createContext } from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { apiUrl } from "../api";
 
 const ShoppingCartContext = createContext();
 
@@ -11,6 +12,21 @@ function ShoppingCartProvider({ children }) {
   const [itemQuantity, setItemQuantity] = useState(0);
   const [itemsPrice, setItemsPrice] = useState(0);
   const [order, setOrder] = useState([]);
+  const [items, setItems] = useState(null);
+  const [searchByTitle, setSearchByTitle] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        setItems(data);
+      } catch (error) {
+        console.error(`Oh no, ocurrió un error: ${error}`);
+      }
+    };
+    fetchData();
+  }, []);
 
   return (
     <ShoppingCartContext.Provider
@@ -29,6 +45,10 @@ function ShoppingCartProvider({ children }) {
         setItemsPrice,
         order,
         setOrder,
+        items,
+        setItems,
+        searchByTitle,
+        setSearchByTitle,
       }}
     >
       {children}
