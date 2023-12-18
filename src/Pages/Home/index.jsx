@@ -33,7 +33,7 @@ function Home() {
       <input
         type="text"
         placeholder="Search a product"
-        className="rounded-lg border border-white w-80 p-4 text-white mb-4 bg-black hover:border-blue-400 focus:border-blue-400 outline-none"
+        className="rounded-lg border border-white w-80 p-4 text-white mb-4 bg-black hover:border-blue-400 focus:border-blue-400 outline-none text-center"
         onChange={(event) => {
           context.setSearchByTitle(event.target.value);
         }}
