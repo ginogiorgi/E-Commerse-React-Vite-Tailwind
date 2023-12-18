@@ -12,8 +12,10 @@ function NavBar() {
         <li className="font-semibold text-lg text-blue-400">
           <NavLink
             to="/"
-            onClick={() => context.setSearchByCategory("")}
-            className=""
+            onClick={() => {
+              context.setSearchByCategory("");
+              context.setIsProductDetailOpen(false);
+            }}
           >
             <ShoppingBagIcon className="h-10 text-blue-400 block mr-auto ml-auto w-4/5" />
             <p>Shopify</p>
@@ -22,7 +24,10 @@ function NavBar() {
         <li className="text-center">
           <NavLink
             to="/men-clothing"
-            onClick={() => context.setSearchByCategory("men's clothing")}
+            onClick={() => {
+              context.setSearchByCategory("men's clothing");
+              context.setIsProductDetailOpen(false);
+            }}
             className={({ isActive }) =>
               isActive ? "underline underline-offset-4" : ""
             }
@@ -33,7 +38,10 @@ function NavBar() {
         <li className="text-center">
           <NavLink
             to="/women-clothing"
-            onClick={() => context.setSearchByCategory("women's clothing")}
+            onClick={() => {
+              context.setSearchByCategory("women's clothing");
+              context.setIsProductDetailOpen(false);
+            }}
             className={({ isActive }) =>
               isActive ? "underline underline-offset-4" : ""
             }
@@ -44,7 +52,10 @@ function NavBar() {
         <li className="text-center">
           <NavLink
             to="/electronics"
-            onClick={() => context.setSearchByCategory("electronics")}
+            onClick={() => {
+              context.setSearchByCategory("electronics");
+              context.setIsProductDetailOpen(false);
+            }}
             className={({ isActive }) =>
               isActive ? "underline underline-offset-4" : ""
             }
@@ -55,7 +66,10 @@ function NavBar() {
         <li className="text-center">
           <NavLink
             to="/jewelery"
-            onClick={() => context.setSearchByCategory("jewelery")}
+            onClick={() => {
+              context.setSearchByCategory("jewelery");
+              context.setIsProductDetailOpen(false);
+            }}
             className={({ isActive }) =>
               isActive ? "underline underline-offset-4" : ""
             }
