@@ -25,6 +25,7 @@ function Card(data) {
     <div
       className="cursor-pointer w-56 h-60 rounded-lg shadow-lg shadow-myGray/40 hover:border-2 border-blue-400"
       onClick={() => {
+        context.setIsProductCartOpen(false);
         context.setIsProductDetailOpen(true);
         context.setProductToShow(data.data);
       }}

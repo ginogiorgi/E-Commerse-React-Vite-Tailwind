@@ -78,6 +78,7 @@ function NavBar() {
         <li
           onClick={() => {
             cart.className = "cursor-pointer flex gap-3 items-center";
+            context.setIsProductDetailOpen(false);
             context.setIsProductCartOpen(!context.isProductCartOpen);
           }}
           className="cursor-pointer flex gap-3 items-center"
