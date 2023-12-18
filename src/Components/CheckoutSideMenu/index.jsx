@@ -13,18 +13,20 @@ function CheckoutSideMenu() {
     context.setCartProducts(filteredProducts);
   }
   function handleCheckout() {
-    const orderToAdd = {
-      date: new Date().toLocaleDateString(),
-      products: context.cartProducts,
-      totalProducts: context.itemQuantity,
-      totalPrice: context.itemsPrice,
-    };
+    if (context.cartProducts.length > 0) {
+      context.setIsProductCartOpen(false);
+      const orderToAdd = {
+        date: new Date().toLocaleDateString(),
+        products: context.cartProducts,
+        totalProducts: context.itemQuantity,
+        totalPrice: context.itemsPrice,
+      };
 
-    context.setOrder([...context.order, orderToAdd]);
-    context.setCartProducts([]);
-    context.setItemQuantity(0);
-    context.setItemsPrice(0);
-    context.setIsProductCartOpen(false);
+      context.setOrder([...context.order, orderToAdd]);
+      context.setCartProducts([]);
+      context.setItemQuantity(0);
+      context.setItemsPrice(0);
+    }
   }
 
   return (
@@ -53,7 +55,7 @@ function CheckoutSideMenu() {
           </span>
         </p>
       </div>
-      <Link to="/my-orders/last">
+      <Link to={`${context.cartProducts.length > 0 ? "/my-orders/last" : ""}`}>
         <button
           className="bg-white py-3 text-black rounded-lg w-5/6 m-auto flex justify-center mt-5 font-medium text-2xl"
           onClick={() => handleCheckout()}
