@@ -12,9 +12,8 @@ function ShoppingCartProvider({ children }) {
   const [itemQuantity, setItemQuantity] = useState(0);
   const [itemsPrice, setItemsPrice] = useState(0);
   const [order, setOrder] = useState([]);
-  const [items, setItems] = useState(null);
-  const [filteredItems, setFilteredItems] = useState(null);
-  const [searchByTitle, setSearchByTitle] = useState(null);
+  const [items, setItems] = useState([]);
+  const [searchByTitle, setSearchByTitle] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,15 +27,9 @@ function ShoppingCartProvider({ children }) {
     };
     fetchData();
   }, []);
-
-  useEffect(() => {
-    if (searchByTitle)
-      setFilteredItems(
-        items?.filter((item) =>
-          item.title.toLowerCase().includes(searchByTitle.toLowerCase())
-        )
-      );
-  }, [items, searchByTitle]);
+  const searchedItems = items?.filter((item) =>
+    item.title?.toLowerCase().includes(searchByTitle?.toLowerCase())
+  );
 
   return (
     <ShoppingCartContext.Provider
@@ -55,10 +48,8 @@ function ShoppingCartProvider({ children }) {
         setItemsPrice,
         order,
         setOrder,
-        items,
-        setItems,
         setSearchByTitle,
-        filteredItems,
+        searchedItems,
         searchByTitle,
       }}
     >

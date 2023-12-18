@@ -8,16 +8,26 @@ function Home() {
   const context = useContext(ShoppingCartContext);
 
   function renderView() {
-    if (!context.searchByTitle?.length > 0) {
-      return context.items?.map((item) => <Card key={item.id} data={item} />);
-    } else if (!context.filteredItems?.length > 0) {
-      return <div>There are no items that match your search</div>;
-    } else {
-      return context.filteredItems?.map((item) => (
-        <Card key={item.id} data={item} />
-      ));
+    if (context.searchedItems?.length > 0) {
+      return (
+        <div
+          className="grid gap-6 grid-cols-auto-fill-100 w-full justify-center"
+          id="CardsContainer"
+        >
+          {context.searchedItems?.map((item) => (
+            <Card key={item.id} data={item} />
+          ))}
+        </div>
+      );
+    } else if (context.searchByTitle.length > 0) {
+      return (
+        <div className="absolute left-0 right-0 ml-auto mr-auto w-28 top-2/4">
+          No se encontraron productos
+        </div>
+      );
     }
   }
+
   return (
     <Layout>
       <input
@@ -28,14 +38,7 @@ function Home() {
           context.setSearchByTitle(event.target.value);
         }}
       />
-      <div className="flex items-center w-full left-0">
-        <div
-          className="grid gap-6 grid-cols-auto-fill-100 w-full justify-center"
-          id="CardsContainer"
-        >
-          {renderView()}
-        </div>
-      </div>
+      <div className="flex items-center w-full left-0">{renderView()}</div>
       <ProductDetail />
     </Layout>
   );
