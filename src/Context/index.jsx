@@ -63,9 +63,7 @@ function ShoppingCartProvider({ children }) {
         setSearchByTitle,
         filteredItems,
         searchByTitle,
-        searchByCategory,
         setSearchByCategory,
-        filteredCategory,
       }}
     >
       {children}
