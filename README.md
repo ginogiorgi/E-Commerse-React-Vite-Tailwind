@@ -1,8 +1,36 @@
-# React + Vite
+<h1 align="left">E-commerse made with React, tailwind Framework and Vite </h2>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<h2 align="left">Español</h2>
+Proyecto hecho en el Curso de React.js con Vite.js y TailwindCSS, con muchisima personalización propia de estilos y funciones tales como:
+‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎
 
-Currently, two official plugins are available:
+- Estilizados personalizados como sombreados y modo oscuro para todas las páginas y componentes.
+- Añadido de animaciones para el carrito y para la Product Card.
+- Llamado a una API personalizada.
+- Responsive Grids
+- Poder comprar más de un solo producto
+- Añadido de iconos
+- Scrollbars personalizadas
+- Código más conciso y legible
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<h2 align="left">English</h2>
+Project made in the React.js Course with Vite.js and TailwindCSS, with a lot of customization of styles and functions such as:
+‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎
+
+- Custom stylizations such as shades and dark mode for all pages and components.
+- Added animations for the Cart and for the Product Card.
+- Call to a custom API.
+- Responsive Grids
+- Be able to buy more than a single product
+- Added icons
+- Custom scrollbars
+- More concise and readable code
+
+<h2 align="left">Photos</h2>
+
+<img src="https://github.com/ginogiorgi/reactWithViteAndTailwindCSS/blob/main/screenshots/pagina-principal.PNG?raw=true" />
+<img src="https://github.com/ginogiorgi/reactWithViteAndTailwindCSS/blob/main/screenshots/pagina-categoria.PNG?raw=true" />
+<img src="https://github.com/ginogiorgi/reactWithViteAndTailwindCSS/blob/main/screenshots/product-detail.PNG?raw=true" />
+<img src="https://github.com/ginogiorgi/reactWithViteAndTailwindCSS/blob/main/screenshots/shoping-cart.PNG?raw=true" />
+<img src="https://github.com/ginogiorgi/reactWithViteAndTailwindCSS/blob/main/screenshots/my-order.PNG?raw=true" />
+<img src="https://github.com/ginogiorgi/reactWithViteAndTailwindCSS/blob/main/screenshots/my-orders.PNG?raw=true" />
