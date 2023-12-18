@@ -7,6 +7,17 @@ import { ShoppingCartContext } from "../../Context";
 function Home() {
   const context = useContext(ShoppingCartContext);
 
+  function renderView() {
+    if (!context.searchByTitle?.length > 0) {
+      return context.items?.map((item) => <Card key={item.id} data={item} />);
+    } else if (!context.filteredItems?.length > 0) {
+      return <div>There are no items that match your search</div>;
+    } else {
+      return context.filteredItems?.map((item) => (
+        <Card key={item.id} data={item} />
+      ));
+    }
+  }
   return (
     <Layout>
       <input
@@ -22,9 +33,7 @@ function Home() {
           className="grid gap-6 grid-cols-auto-fill-100 w-full justify-center"
           id="CardsContainer"
         >
-          {context.items?.map((item) => {
-            return <Card key={item.id} data={item} />;
-          })}
+          {renderView()}
         </div>
       </div>
       <ProductDetail />

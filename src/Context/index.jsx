@@ -13,6 +13,7 @@ function ShoppingCartProvider({ children }) {
   const [itemsPrice, setItemsPrice] = useState(0);
   const [order, setOrder] = useState([]);
   const [items, setItems] = useState(null);
+  const [filteredItems, setFilteredItems] = useState(null);
   const [searchByTitle, setSearchByTitle] = useState(null);
 
   useEffect(() => {
@@ -27,6 +28,15 @@ function ShoppingCartProvider({ children }) {
     };
     fetchData();
   }, []);
+
+  useEffect(() => {
+    if (searchByTitle)
+      setFilteredItems(
+        items?.filter((item) =>
+          item.title.toLowerCase().includes(searchByTitle.toLowerCase())
+        )
+      );
+  }, [items, searchByTitle]);
 
   return (
     <ShoppingCartContext.Provider
@@ -47,8 +57,9 @@ function ShoppingCartProvider({ children }) {
         setOrder,
         items,
         setItems,
-        searchByTitle,
         setSearchByTitle,
+        filteredItems,
+        searchByTitle,
       }}
     >
       {children}
