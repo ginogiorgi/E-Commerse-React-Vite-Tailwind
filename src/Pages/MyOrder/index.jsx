@@ -19,7 +19,7 @@ function MyOrder() {
     <Layout>
       <div className="flex items-center relative w-80 justify-center mb-2">
         <Link to="/my-orders" className="absolute left-0">
-          <ChevronLeftIcon className="h-8 w-8 text-white stroke-white hover:text-[#FF0000] hover:stroke-[#FF0000]" />
+          <ChevronLeftIcon className="h-8 w-8 text-white stroke-white" />
         </Link>
 
         <h1>My Order</h1>
@@ -29,14 +29,14 @@ function MyOrder() {
           <OrderCard props={item} key={item.id} />
         ))}
       </div>
-      <div className="px-6">
-        <p className="flex justify-between items-center mb-1">
+      <div className="flex items-center w-96 justify-between">
+        <p className="flex justify-between items-center gap-2 mt-1">
           <span className="font-light">Total Products: </span>
           <span className="font-medium text-2xl">
             {context.order[context.order.length - 1].totalProducts}
           </span>
         </p>
-        <p className="flex justify-between items-center mt-1">
+        <p className="flex justify-between items-center mt-1 gap-2">
           <span className="font-light">Total Price: </span>
           <span className="font-medium text-2xl">
             $ {context.order[context.order.length - 1].totalPrice.toFixed(2)}

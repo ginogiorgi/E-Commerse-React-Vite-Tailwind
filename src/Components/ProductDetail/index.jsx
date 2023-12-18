@@ -38,10 +38,10 @@ function ProductDetail() {
         <span className="font-medium text-2xl mb-1">
           ${context.productToShow.price}
         </span>
-        <span className="font-medium text-lg mb-2">
+        <span className="font-medium text-lg mb-2 line-clamp-2">
           {context.productToShow.title}
         </span>
-        <span className="font-medium text-sm">
+        <span className="font-medium text-sm h-[88px] overflow-y-auto">
           {context.productToShow.description}
         </span>
       </p>
