@@ -75,26 +75,6 @@ function NavBar() {
             My Orders
           </NavLink>
         </li>
-        <li className="text-center">
-          <NavLink
-            to="/my-account"
-            className={({ isActive }) =>
-              isActive ? "underline underline-offset-4" : ""
-            }
-          >
-            My Account
-          </NavLink>
-        </li>
-        <li className="text-center">
-          <NavLink
-            to="/sign-in"
-            className={({ isActive }) =>
-              isActive ? "underline underline-offset-4" : ""
-            }
-          >
-            Sign In
-          </NavLink>
-        </li>
         <li
           onClick={() => {
             cart.className = "cursor-pointer flex gap-3 items-center";
