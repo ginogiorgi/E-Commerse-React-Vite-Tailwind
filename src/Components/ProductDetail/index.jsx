@@ -41,7 +41,7 @@ function ProductDetail() {
         <span className="font-medium text-lg mb-2 line-clamp-2">
           {context.productToShow.title}
         </span>
-        <span className="font-medium text-sm h-[88px] overflow-y-auto">
+        <span className="font-medium text-sm h-28 overflow-y-auto">
           {context.productToShow.description}
         </span>
       </p>
