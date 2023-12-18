@@ -14,6 +14,7 @@ function ShoppingCartProvider({ children }) {
   const [order, setOrder] = useState([]);
   const [items, setItems] = useState([]);
   const [searchByTitle, setSearchByTitle] = useState("");
+  const [searchByCategory, setSearchByCategory] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,7 +28,18 @@ function ShoppingCartProvider({ children }) {
     };
     fetchData();
   }, []);
-  const searchedItems = items?.filter((item) =>
+
+  let filteredCategory;
+
+  if (searchByCategory) {
+    filteredCategory = items?.filter(
+      (item) => item.category === searchByCategory
+    );
+  } else {
+    filteredCategory = items;
+  }
+
+  const filteredItems = filteredCategory?.filter((item) =>
     item.title?.toLowerCase().includes(searchByTitle?.toLowerCase())
   );
 
@@ -49,8 +61,11 @@ function ShoppingCartProvider({ children }) {
         order,
         setOrder,
         setSearchByTitle,
-        searchedItems,
+        filteredItems,
         searchByTitle,
+        searchByCategory,
+        setSearchByCategory,
+        filteredCategory,
       }}
     >
       {children}

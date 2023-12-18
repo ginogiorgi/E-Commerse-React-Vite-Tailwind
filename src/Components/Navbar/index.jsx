@@ -10,7 +10,11 @@ function NavBar() {
     <nav className="flex justify-between z-10 w-full py-1 px-4 text-sm font-light top-0 ">
       <ul className="flex items-center gap-3">
         <li className="font-semibold text-lg text-blue-400">
-          <NavLink to="/" className="">
+          <NavLink
+            to="/"
+            onClick={() => context.setSearchByCategory("")}
+            className=""
+          >
             <ShoppingBagIcon className="h-10 text-blue-400 block mr-auto ml-auto w-4/5" />
             <p>Shopify</p>
           </NavLink>
@@ -18,6 +22,7 @@ function NavBar() {
         <li className="text-center">
           <NavLink
             to="/men-clothing"
+            onClick={() => context.setSearchByCategory("men's clothing")}
             className={({ isActive }) =>
               isActive ? "underline underline-offset-4" : ""
             }
@@ -28,6 +33,7 @@ function NavBar() {
         <li className="text-center">
           <NavLink
             to="/women-clothing"
+            onClick={() => context.setSearchByCategory("women's clothing")}
             className={({ isActive }) =>
               isActive ? "underline underline-offset-4" : ""
             }
@@ -38,6 +44,7 @@ function NavBar() {
         <li className="text-center">
           <NavLink
             to="/electronics"
+            onClick={() => context.setSearchByCategory("electronics")}
             className={({ isActive }) =>
               isActive ? "underline underline-offset-4" : ""
             }
@@ -47,7 +54,8 @@ function NavBar() {
         </li>
         <li className="text-center">
           <NavLink
-            to="/jewelry"
+            to="/jewelery"
+            onClick={() => context.setSearchByCategory("jewelery")}
             className={({ isActive }) =>
               isActive ? "underline underline-offset-4" : ""
             }
@@ -57,6 +65,16 @@ function NavBar() {
         </li>
       </ul>
       <ul className="flex items-center gap-3">
+        <li className="text-center">
+          <NavLink
+            to="/my-orders"
+            className={({ isActive }) =>
+              isActive ? "underline underline-offset-4" : ""
+            }
+          >
+            My Orders
+          </NavLink>
+        </li>
         <li className="text-center">
           <NavLink
             to="/my-account"

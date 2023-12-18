@@ -8,13 +8,13 @@ function Home() {
   const context = useContext(ShoppingCartContext);
 
   function renderView() {
-    if (context.searchedItems?.length > 0) {
+    if (context.filteredItems?.length > 0) {
       return (
         <div
           className="grid gap-6 grid-cols-auto-fill-100 w-full justify-center"
           id="CardsContainer"
         >
-          {context.searchedItems?.map((item) => (
+          {context.filteredItems?.map((item) => (
             <Card key={item.id} data={item} />
           ))}
         </div>
