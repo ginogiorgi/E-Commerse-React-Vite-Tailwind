@@ -1,7 +1,7 @@
 import { createContext } from "react";
 import { useState, useEffect } from "react";
 import { apiUrl } from "../api";
-
+// esto es un cambio
 const ShoppingCartContext = createContext();
 
 function ShoppingCartProvider({ children }) {
