@@ -31,7 +31,7 @@ const AppRoutes = () => {
 function App() {
   return (
     <ShoppingCartProvider>
-      <BrowserRouter>
+      <BrowserRouter basename="/reactWithViteAndTailwindCSS">
         <NavBar />
         <CheckoutSideMenu />
         <AppRoutes />
