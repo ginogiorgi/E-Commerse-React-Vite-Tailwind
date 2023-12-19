@@ -1,6 +1,7 @@
 import { createContext } from "react";
 import { useState, useEffect } from "react";
 import { apiUrl } from "../api";
+import { useLocalStorage } from "./useLocalStorage";
 
 const ShoppingCartContext = createContext();
 
@@ -16,7 +17,6 @@ function ShoppingCartProvider({ children }) {
   const [searchByTitle, setSearchByTitle] = useState("");
   const [searchByCategory, setSearchByCategory] = useState("");
   const [account, setAccount] = useState({});
-  const [signOut, setSignOut] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -44,6 +44,7 @@ function ShoppingCartProvider({ children }) {
   const filteredItems = filteredCategory?.filter((item) =>
     item.title?.toLowerCase().includes(searchByTitle?.toLowerCase())
   );
+  useLocalStorage();
 
   return (
     <ShoppingCartContext.Provider
@@ -66,8 +67,6 @@ function ShoppingCartProvider({ children }) {
         filteredItems,
         searchByTitle,
         setSearchByCategory,
-        setSignOut,
-        signOut,
       }}
     >
       {children}

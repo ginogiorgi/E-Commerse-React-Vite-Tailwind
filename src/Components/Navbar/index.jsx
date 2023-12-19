@@ -5,8 +5,7 @@ import { ShoppingCartIcon, ShoppingBagIcon } from "@heroicons/react/24/solid";
 
 function NavBar() {
   const context = useContext(ShoppingCartContext);
-  const isUserSignOut =
-    context.signOut || JSON.parse(localStorage.getItem("sign-out"));
+  const isUserSignOut = JSON.parse(localStorage.getItem("sign-out"));
 
   function renderView() {
     if (isUserSignOut) {
