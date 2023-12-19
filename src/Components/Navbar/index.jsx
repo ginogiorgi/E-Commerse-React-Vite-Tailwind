@@ -2,126 +2,218 @@ import { NavLink } from "react-router-dom";
 import { ShoppingCartContext } from "../../Context";
 import { useContext } from "react";
 import { ShoppingCartIcon, ShoppingBagIcon } from "@heroicons/react/24/solid";
-import { useLocalStorage } from "../../Context/useLocalStorage";
 
 function NavBar() {
   const context = useContext(ShoppingCartContext);
-  function handleSignOut() {
-    const stringifiedSignOut = JSON.stringify(true);
+  const isUserSignOut =
+    context.signOut || JSON.parse(localStorage.getItem("sign-out"));
 
-    localStorage.setItem("sign-out", stringifiedSignOut);
-    context.setSignOut(true);
+  function renderView() {
+    if (isUserSignOut) {
+      return (
+        <nav className="flex justify-between z-10 w-full py-1 px-4 text-sm font-light top-0 ">
+          <ul className="flex items-center gap-3">
+            <li className="font-semibold text-lg text-blue-400">
+              <NavLink
+                to="/"
+                onClick={() => {
+                  context.setSearchByCategory("");
+                  context.setIsProductDetailOpen(false);
+                }}
+              >
+                <ShoppingBagIcon className="h-10 text-blue-400 block mr-auto ml-auto w-4/5" />
+                <p>Shopify</p>
+              </NavLink>
+            </li>
+            <li className="text-center">
+              <NavLink
+                to="/men-clothing"
+                onClick={() => {
+                  context.setSearchByCategory("men's clothing");
+                  context.setIsProductDetailOpen(false);
+                }}
+                className={({ isActive }) =>
+                  isActive ? "underline underline-offset-4" : ""
+                }
+              >
+                Men's clothing
+              </NavLink>
+            </li>
+            <li className="text-center">
+              <NavLink
+                to="/women-clothing"
+                onClick={() => {
+                  context.setSearchByCategory("women's clothing");
+                  context.setIsProductDetailOpen(false);
+                }}
+                className={({ isActive }) =>
+                  isActive ? "underline underline-offset-4" : ""
+                }
+              >
+                Women's clothing
+              </NavLink>
+            </li>
+            <li className="text-center">
+              <NavLink
+                to="/electronics"
+                onClick={() => {
+                  context.setSearchByCategory("electronics");
+                  context.setIsProductDetailOpen(false);
+                }}
+                className={({ isActive }) =>
+                  isActive ? "underline underline-offset-4" : ""
+                }
+              >
+                Electronics
+              </NavLink>
+            </li>
+            <li className="text-center">
+              <NavLink
+                to="/jewelery"
+                onClick={() => {
+                  context.setSearchByCategory("jewelery");
+                  context.setIsProductDetailOpen(false);
+                }}
+                className={({ isActive }) =>
+                  isActive ? "underline underline-offset-4" : ""
+                }
+              >
+                Jewelery
+              </NavLink>
+            </li>
+          </ul>
+          <ul className="flex items-center gap-3">
+            <li className="text-center">
+              <NavLink
+                to="/sign-in"
+                className={({ isActive }) =>
+                  isActive ? "underline underline-offset-4" : ""
+                }
+                onClick={() => {
+                  localStorage.setItem("sign-out", JSON.stringify(true));
+                  context.setSignOut(true);
+                }}
+              >
+                Sign In
+              </NavLink>
+            </li>
+          </ul>
+        </nav>
+      );
+    } else {
+      return (
+        <nav className="flex justify-between z-10 w-full py-1 px-4 text-sm font-light top-0 ">
+          <ul className="flex items-center gap-3">
+            <li className="font-semibold text-lg text-blue-400">
+              <NavLink
+                to="/"
+                onClick={() => {
+                  context.setSearchByCategory("");
+                  context.setIsProductDetailOpen(false);
+                }}
+              >
+                <ShoppingBagIcon className="h-10 text-blue-400 block mr-auto ml-auto w-4/5" />
+                <p>Shopify</p>
+              </NavLink>
+            </li>
+            <li className="text-center">
+              <NavLink
+                to="/men-clothing"
+                onClick={() => {
+                  context.setSearchByCategory("men's clothing");
+                  context.setIsProductDetailOpen(false);
+                }}
+                className={({ isActive }) =>
+                  isActive ? "underline underline-offset-4" : ""
+                }
+              >
+                Men's clothing
+              </NavLink>
+            </li>
+            <li className="text-center">
+              <NavLink
+                to="/women-clothing"
+                onClick={() => {
+                  context.setSearchByCategory("women's clothing");
+                  context.setIsProductDetailOpen(false);
+                }}
+                className={({ isActive }) =>
+                  isActive ? "underline underline-offset-4" : ""
+                }
+              >
+                Women's clothing
+              </NavLink>
+            </li>
+            <li className="text-center">
+              <NavLink
+                to="/electronics"
+                onClick={() => {
+                  context.setSearchByCategory("electronics");
+                  context.setIsProductDetailOpen(false);
+                }}
+                className={({ isActive }) =>
+                  isActive ? "underline underline-offset-4" : ""
+                }
+              >
+                Electronics
+              </NavLink>
+            </li>
+            <li className="text-center">
+              <NavLink
+                to="/jewelery"
+                onClick={() => {
+                  context.setSearchByCategory("jewelery");
+                  context.setIsProductDetailOpen(false);
+                }}
+                className={({ isActive }) =>
+                  isActive ? "underline underline-offset-4" : ""
+                }
+              >
+                Jewelery
+              </NavLink>
+            </li>
+          </ul>
+          <ul className="flex items-center gap-3">
+            <li className="text-center">
+              <NavLink
+                to="/sign-in"
+                onClick={() => {
+                  localStorage.setItem("sign-out", JSON.stringify(true));
+                  context.setSignOut(true);
+                }}
+              >
+                Sign out
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/my-orders"
+                className={({ isActive }) =>
+                  isActive ? "underline underline-offset-4" : ""
+                }
+              >
+                My Orders
+              </NavLink>
+            </li>
+            <li
+              onClick={() => {
+                cart.className = "cursor-pointer flex gap-3 items-center";
+                context.setIsProductDetailOpen(false);
+                context.setIsProductCartOpen(!context.isProductCartOpen);
+              }}
+              className="cursor-pointer flex gap-3 items-center"
+              id="cart"
+            >
+              <ShoppingCartIcon className="h-6 w-6 text-blue-400 cursor-pointer" />
+              {context.cartProducts.length}
+            </li>
+          </ul>
+        </nav>
+      );
+    }
   }
 
-  return (
-    <nav className="flex justify-between z-10 w-full py-1 px-4 text-sm font-light top-0 ">
-      <ul className="flex items-center gap-3">
-        <li className="font-semibold text-lg text-blue-400">
-          <NavLink
-            to="/"
-            onClick={() => {
-              context.setSearchByCategory("");
-              context.setIsProductDetailOpen(false);
-            }}
-          >
-            <ShoppingBagIcon className="h-10 text-blue-400 block mr-auto ml-auto w-4/5" />
-            <p>Shopify</p>
-          </NavLink>
-        </li>
-        <li className="text-center">
-          <NavLink
-            to="/men-clothing"
-            onClick={() => {
-              context.setSearchByCategory("men's clothing");
-              context.setIsProductDetailOpen(false);
-            }}
-            className={({ isActive }) =>
-              isActive ? "underline underline-offset-4" : ""
-            }
-          >
-            Men's clothing
-          </NavLink>
-        </li>
-        <li className="text-center">
-          <NavLink
-            to="/women-clothing"
-            onClick={() => {
-              context.setSearchByCategory("women's clothing");
-              context.setIsProductDetailOpen(false);
-            }}
-            className={({ isActive }) =>
-              isActive ? "underline underline-offset-4" : ""
-            }
-          >
-            Women's clothing
-          </NavLink>
-        </li>
-        <li className="text-center">
-          <NavLink
-            to="/electronics"
-            onClick={() => {
-              context.setSearchByCategory("electronics");
-              context.setIsProductDetailOpen(false);
-            }}
-            className={({ isActive }) =>
-              isActive ? "underline underline-offset-4" : ""
-            }
-          >
-            Electronics
-          </NavLink>
-        </li>
-        <li className="text-center">
-          <NavLink
-            to="/jewelery"
-            onClick={() => {
-              context.setSearchByCategory("jewelery");
-              context.setIsProductDetailOpen(false);
-            }}
-            className={({ isActive }) =>
-              isActive ? "underline underline-offset-4" : ""
-            }
-          >
-            Jewelery
-          </NavLink>
-        </li>
-      </ul>
-      <ul className="flex items-center gap-3">
-        <li className="text-center">
-          <NavLink
-            to="/sign-in"
-            className={({ isActive }) =>
-              isActive ? "underline underline-offset-4" : ""
-            }
-            onClick={() => handleSignOut()}
-          >
-            Sign out
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/my-orders"
-            className={({ isActive }) =>
-              isActive ? "underline underline-offset-4" : ""
-            }
-          >
-            My Orders
-          </NavLink>
-        </li>
-        <li
-          onClick={() => {
-            cart.className = "cursor-pointer flex gap-3 items-center";
-            context.setIsProductDetailOpen(false);
-            context.setIsProductCartOpen(!context.isProductCartOpen);
-          }}
-          className="cursor-pointer flex gap-3 items-center"
-          id="cart"
-        >
-          <ShoppingCartIcon className="h-6 w-6 text-blue-400 cursor-pointer" />
-          {context.cartProducts.length}
-        </li>
-      </ul>
-    </nav>
-  );
+  return renderView();
 }
 
 export { NavBar };

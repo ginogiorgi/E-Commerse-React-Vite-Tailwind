@@ -67,6 +67,7 @@ function ShoppingCartProvider({ children }) {
         searchByTitle,
         setSearchByCategory,
         setSignOut,
+        signOut,
       }}
     >
       {children}

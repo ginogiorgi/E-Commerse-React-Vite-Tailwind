@@ -1,0 +1,9 @@
+.input-group label {
+  transition: 0.5s;
+}
+
+.input-group input:focus ~ label,
+.input-group input:valid ~ label {
+  bottom: 100%;
+  color: rgb(96 165 250);
+}
