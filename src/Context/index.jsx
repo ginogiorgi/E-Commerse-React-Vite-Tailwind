@@ -15,6 +15,8 @@ function ShoppingCartProvider({ children }) {
   const [items, setItems] = useState([]);
   const [searchByTitle, setSearchByTitle] = useState("");
   const [searchByCategory, setSearchByCategory] = useState("");
+  const [account, setAccount] = useState({});
+  const [signOut, setSignOut] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -64,6 +66,7 @@ function ShoppingCartProvider({ children }) {
         filteredItems,
         searchByTitle,
         setSearchByCategory,
+        setSignOut,
       }}
     >
       {children}

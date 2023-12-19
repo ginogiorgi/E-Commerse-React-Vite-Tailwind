@@ -2,9 +2,16 @@ import { NavLink } from "react-router-dom";
 import { ShoppingCartContext } from "../../Context";
 import { useContext } from "react";
 import { ShoppingCartIcon, ShoppingBagIcon } from "@heroicons/react/24/solid";
+import { useLocalStorage } from "../../Context/useLocalStorage";
 
 function NavBar() {
   const context = useContext(ShoppingCartContext);
+  function handleSignOut() {
+    const stringifiedSignOut = JSON.stringify(true);
+
+    localStorage.setItem("sign-out", stringifiedSignOut);
+    context.setSignOut(true);
+  }
 
   return (
     <nav className="flex justify-between z-10 w-full py-1 px-4 text-sm font-light top-0 ">
@@ -80,6 +87,17 @@ function NavBar() {
       </ul>
       <ul className="flex items-center gap-3">
         <li className="text-center">
+          <NavLink
+            to="/sign-in"
+            className={({ isActive }) =>
+              isActive ? "underline underline-offset-4" : ""
+            }
+            onClick={() => handleSignOut()}
+          >
+            Sign out
+          </NavLink>
+        </li>
+        <li>
           <NavLink
             to="/my-orders"
             className={({ isActive }) =>
