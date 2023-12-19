@@ -5,8 +5,7 @@ import { PlusIcon } from "@heroicons/react/24/solid";
 function Card(data) {
   const context = useContext(ShoppingCartContext);
   const cart = document.getElementById("cart");
-  const isUserSignOut =
-    context.signOut || JSON.parse(localStorage.getItem("sign-out"));
+  const isUserSignOut = JSON.parse(localStorage.getItem("sign-out"));
 
   function renderView() {
     if (!isUserSignOut) {

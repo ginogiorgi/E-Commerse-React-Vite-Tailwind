@@ -67,6 +67,8 @@ function ShoppingCartProvider({ children }) {
         filteredItems,
         searchByTitle,
         setSearchByCategory,
+        account,
+        setAccount,
       }}
     >
       {children}

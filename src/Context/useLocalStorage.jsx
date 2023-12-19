@@ -9,13 +9,13 @@ function useLocalStorage() {
       let parsedSignOut;
 
       if (!localStorageAccount) {
-        localStorage.setItem("account", JSON.stringify({}));
+        localStorage.setItem("account", JSON.stringify([]));
         parsedAccount = {};
       } else {
         parsedAccount = JSON.parse(localStorageAccount);
       }
       if (!localStorageSignOut) {
-        localStorage.setItem("sign-out", JSON.stringify(false));
+        localStorage.setItem("sign-out", JSON.stringify(true));
         parsedSignOut = {};
       } else {
         parsedSignOut = JSON.parse(localStorageSignOut);

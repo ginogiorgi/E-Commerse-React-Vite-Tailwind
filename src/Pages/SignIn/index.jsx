@@ -1,19 +1,62 @@
 import { Layout } from "../../Components/Layout";
 import { useState } from "react";
+import { useContext } from "react";
+import { ShoppingCartContext } from "../../Context";
+import { useNavigate } from "react-router-dom";
 import "./SignIn.css";
 
 function SignIn() {
   const [changeForm, setChangeForm] = useState(true);
+  const [newUsername, setNewUsername] = useState("");
+  const [newEmail, setNewEmail] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const context = useContext(ShoppingCartContext);
+  const navigate = useNavigate();
+
+  function onSubmit() {
+    const accountsValue = JSON.parse(localStorage.getItem("account"));
+
+    accountsValue.push({
+      username: newUsername,
+      email: newEmail,
+      password: newPassword,
+    });
+    localStorage.setItem("account", JSON.stringify(accountsValue));
+    setChangeForm(true);
+  }
+
+  function onLogin() {
+    const loginInfo = {
+      username: username,
+      password: password,
+    };
+    const accountsValue = JSON.parse(localStorage.getItem("account"));
+    const checkData = accountsValue?.filter(
+      (account) =>
+        account.username === loginInfo.username &&
+        account.password === loginInfo.password
+    );
+    if (checkData.length > 0) {
+      localStorage.setItem("sign-out", JSON.stringify(false));
+      context.setAccount(checkData[0]);
+      navigate("/");
+    }
+  }
 
   function renderView() {
     if (changeForm) {
       return (
         <div className="flex justify-center items-center w-full h-full form-wrapper">
-          <form action="">
+          <div>
             <h2 className="text-3xl text-center">Login</h2>
             <div className="relative my-8 border-b-2 input-group">
               <input
                 type="text"
+                onInput={(event) => {
+                  setUsername(event.target.value);
+                }}
                 className="w-80 h-10 px-1 bg-transparent outline-none"
                 required
               />
@@ -24,6 +67,9 @@ function SignIn() {
             <div className="relative my-8 border-b-2 input-group">
               <input
                 type="password"
+                onInput={(event) => {
+                  setPassword(event.target.value);
+                }}
                 className="w-80 h-10 px-1 bg-transparent border-none outline-none"
                 required
               />
@@ -34,7 +80,9 @@ function SignIn() {
             <div className="-mt-1 mb-4 ml-1"></div>
             <button
               className="relative w-full h-10 bg-blue-400 text-black font-medium cursor-pointer rounded-lg shadow-lg shadow-blue-400/20"
-              type="submit"
+              onClick={() => {
+                onLogin();
+              }}
             >
               Login
             </button>
@@ -52,17 +100,20 @@ function SignIn() {
                 </a>
               </p>
             </div>
-          </form>
+          </div>
         </div>
       );
     } else {
       return (
         <div className="flex justify-center items-center w-full h-full form-wrapper">
-          <form action="">
+          <div>
             <h2 className="text-3xl text-center">Sign Up</h2>
             <div className="relative my-8 border-b-2 input-group">
               <input
                 type="text"
+                onInput={(event) => {
+                  setNewUsername(event.target.value);
+                }}
                 className="w-80 h-10 px-1 bg-transparent outline-none"
                 required
               />
@@ -73,6 +124,9 @@ function SignIn() {
             <div className="relative my-8 border-b-2 input-group">
               <input
                 type="email"
+                onInput={(event) => {
+                  setNewEmail(event.target.value);
+                }}
                 className="w-80 h-10 px-1 bg-transparent outline-none"
                 required
               />
@@ -83,6 +137,9 @@ function SignIn() {
             <div className="relative my-8 border-b-2 input-group">
               <input
                 type="password"
+                onInput={(event) => {
+                  setNewPassword(event.target.value);
+                }}
                 className="w-80 h-10 px-1 bg-transparent border-none outline-none"
                 required
               />
@@ -92,7 +149,9 @@ function SignIn() {
             </div>
             <button
               className="relative w-full h-10 bg-blue-400 text-black font-medium cursor-pointer rounded-lg shadow-lg shadow-blue-400/20"
-              type="submit"
+              onClick={() => {
+                onSubmit();
+              }}
             >
               Sign Up
             </button>
@@ -110,7 +169,7 @@ function SignIn() {
                 </a>
               </p>
             </div>
-          </form>
+          </div>
         </div>
       );
     }

@@ -90,7 +90,6 @@ function NavBar() {
                 }
                 onClick={() => {
                   localStorage.setItem("sign-out", JSON.stringify(true));
-                  context.setSignOut(true);
                 }}
               >
                 Sign In
