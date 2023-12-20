@@ -1,7 +1,7 @@
 import { createContext } from "react";
 import { useState, useEffect } from "react";
 import { apiUrl } from "../api";
-import { useLocalStorage } from "./useLocalStorage";
+import React from "react";
 
 const ShoppingCartContext = createContext();
 
@@ -16,7 +16,42 @@ function ShoppingCartProvider({ children }) {
   const [items, setItems] = useState([]);
   const [searchByTitle, setSearchByTitle] = useState("");
   const [searchByCategory, setSearchByCategory] = useState("");
-  const [account, setAccount] = useState({});
+
+  React.useEffect(() => {
+    try {
+      const localStorageAccountList = localStorage.getItem("account-list");
+      const localStorageSignOut = localStorage.getItem("sign-out");
+      const localStorageAccount = localStorage.getItem("account");
+      let parsedAccountList;
+      let parsedSignOut;
+      let parsedAccount;
+
+      if (!localStorageAccountList) {
+        localStorage.setItem("account-list", JSON.stringify([]));
+        parsedAccountList = {};
+      } else {
+        parsedAccountList = JSON.parse(localStorageAccountList);
+      }
+      if (!localStorageAccount) {
+        localStorage.setItem("account", JSON.stringify({}));
+        parsedAccount = {};
+      } else {
+        parsedAccountList = JSON.parse(localStorageAccountList);
+      }
+      if (!localStorageSignOut) {
+        localStorage.setItem("sign-out", JSON.stringify(true));
+        parsedSignOut = {};
+      } else {
+        parsedSignOut = JSON.parse(localStorageSignOut);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
+  const [signOut, setSignOut] = useState(
+    JSON.parse(localStorage.getItem("sign-out"))
+  );
 
   useEffect(() => {
     const fetchData = async () => {
@@ -44,7 +79,6 @@ function ShoppingCartProvider({ children }) {
   const filteredItems = filteredCategory?.filter((item) =>
     item.title?.toLowerCase().includes(searchByTitle?.toLowerCase())
   );
-  useLocalStorage();
 
   return (
     <ShoppingCartContext.Provider
@@ -67,8 +101,8 @@ function ShoppingCartProvider({ children }) {
         filteredItems,
         searchByTitle,
         setSearchByCategory,
-        account,
-        setAccount,
+        signOut,
+        setSignOut,
       }}
     >
       {children}

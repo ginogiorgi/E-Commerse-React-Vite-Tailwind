@@ -5,10 +5,9 @@ import { ShoppingCartIcon, ShoppingBagIcon } from "@heroicons/react/24/solid";
 
 function NavBar() {
   const context = useContext(ShoppingCartContext);
-  const isUserSignOut = JSON.parse(localStorage.getItem("sign-out"));
 
   function renderView() {
-    if (isUserSignOut) {
+    if (context.signOut) {
       return (
         <nav className="flex justify-between z-10 w-full py-1 px-4 text-sm font-light top-0 ">
           <ul className="flex items-center gap-3">
@@ -172,6 +171,17 @@ function NavBar() {
             </li>
           </ul>
           <ul className="flex items-center gap-3">
+            <li className="text-center">
+              <NavLink
+                to="/sign-in"
+                onClick={() => {
+                  localStorage.setItem("sign-out", JSON.stringify(true));
+                  context.setSignOut(true);
+                }}
+              >
+                {JSON.parse(localStorage.getItem("account")).email}
+              </NavLink>
+            </li>
             <li className="text-center">
               <NavLink
                 to="/sign-in"

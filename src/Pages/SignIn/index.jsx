@@ -16,14 +16,14 @@ function SignIn() {
   const navigate = useNavigate();
 
   function onSubmit() {
-    const accountsValue = JSON.parse(localStorage.getItem("account"));
+    const accountListValue = JSON.parse(localStorage.getItem("account-list"));
 
-    accountsValue.push({
+    accountListValue.push({
       username: newUsername,
       email: newEmail,
       password: newPassword,
     });
-    localStorage.setItem("account", JSON.stringify(accountsValue));
+    localStorage.setItem("account-list", JSON.stringify(accountListValue));
     setChangeForm(true);
   }
 
@@ -32,15 +32,16 @@ function SignIn() {
       username: username,
       password: password,
     };
-    const accountsValue = JSON.parse(localStorage.getItem("account"));
-    const checkData = accountsValue?.filter(
+    const accountListValue = JSON.parse(localStorage.getItem("account-list"));
+    const checkData = accountListValue?.filter(
       (account) =>
         account.username === loginInfo.username &&
         account.password === loginInfo.password
     );
     if (checkData.length > 0) {
       localStorage.setItem("sign-out", JSON.stringify(false));
-      context.setAccount(checkData[0]);
+      localStorage.setItem("account", JSON.stringify(checkData[0]));
+      context.setSignOut(false);
       navigate("/");
     }
   }
