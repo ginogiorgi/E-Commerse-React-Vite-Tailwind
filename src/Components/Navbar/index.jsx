@@ -172,25 +172,8 @@ function NavBar() {
           </ul>
           <ul className="flex items-center gap-3">
             <li className="text-center">
-              <NavLink
-                to="/sign-in"
-                onClick={() => {
-                  localStorage.setItem("sign-out", JSON.stringify(true));
-                  context.setSignOut(true);
-                }}
-              >
+              <NavLink to="/my-account">
                 {JSON.parse(localStorage.getItem("account")).email}
-              </NavLink>
-            </li>
-            <li className="text-center">
-              <NavLink
-                to="/sign-in"
-                onClick={() => {
-                  localStorage.setItem("sign-out", JSON.stringify(true));
-                  context.setSignOut(true);
-                }}
-              >
-                Sign out
               </NavLink>
             </li>
             <li>
