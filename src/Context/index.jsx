@@ -29,7 +29,7 @@ function ShoppingCartProvider({ children }) {
       }
       if (!localStorageAccount) {
         localStorage.setItem("account", JSON.stringify({}));
-      } else {
+      } else if (JSON.parse(localStorage.getItem("account")).orders) {
         setOrder(JSON.parse(localStorage.getItem("account")).orders);
       }
       if (!localStorageSignOut) {

@@ -2,7 +2,7 @@ import { Layout } from "../../Components/Layout";
 import { useContext } from "react";
 import { ShoppingCartContext } from "../../Context";
 import { OrderCard } from "../../Components/OrderCard";
-import { ChevronLeftIcon } from "@heroicons/react/24/solid";
+import { ChevronLeftIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import { Link } from "react-router-dom";
 
 function MyOrder() {
@@ -17,6 +17,15 @@ function MyOrder() {
   if (index === "last") {
     index = context.order?.length - 1;
   }
+  function deleteOrder() {
+    const newOrder = context.order;
+
+    newOrder.splice(index, 1);
+    context.setOrder(newOrder);
+    accountInfo.orders = context.order;
+    localStorage.setItem("account", JSON.stringify(accountInfo));
+  }
+  console.log(context.order);
 
   return (
     <Layout>
@@ -24,8 +33,16 @@ function MyOrder() {
         <Link to="/my-orders" className="absolute left-0">
           <ChevronLeftIcon className="h-8 w-8 text-white stroke-white" />
         </Link>
-
         <h1>My Order</h1>
+        <Link
+          to="/my-orders"
+          className="absolute right-0"
+          onClick={() => {
+            deleteOrder();
+          }}
+        >
+          <XMarkIcon className="h-8 w-8 text-white stroke-white hover:text-[#FF0000] hover:stroke-[#FF0000]" />
+        </Link>
       </div>
       <div className="h-auto w-80">
         {context.order?.[index]?.products.map((item) => (
