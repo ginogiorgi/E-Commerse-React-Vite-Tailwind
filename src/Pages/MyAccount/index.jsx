@@ -30,7 +30,7 @@ function MyAccount() {
             </div>
             <div className="-mt-1 mb-4 ml-1"></div>
             <NavLink
-              to="/sign-in"
+              to="/"
               onClick={() => {
                 localStorage.setItem("sign-out", JSON.stringify(true));
                 context.setSignOut(true);
