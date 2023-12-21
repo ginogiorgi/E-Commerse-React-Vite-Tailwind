@@ -44,6 +44,7 @@ function ShoppingCartProvider({ children }) {
         parsedSignOut = {};
       } else {
         parsedSignOut = JSON.parse(localStorageSignOut);
+        setSignOut(JSON.parse(localStorage.getItem("sign-out")));
       }
     } catch (error) {
       console.log(error);
