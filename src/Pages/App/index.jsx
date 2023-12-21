@@ -7,7 +7,7 @@ import { AppRoutes } from "../../Routes";
 function App() {
   return (
     <ShoppingCartProvider>
-      <BrowserRouter basename="/reactWithViteAndTailwindCSS">
+      <BrowserRouter basename="/reactWithViteAndTailwindCSS/">
         <NavBar />
         <CheckoutSideMenu />
         <AppRoutes />

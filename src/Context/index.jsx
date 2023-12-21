@@ -16,34 +16,23 @@ function ShoppingCartProvider({ children }) {
   const [items, setItems] = useState([]);
   const [searchByTitle, setSearchByTitle] = useState("");
   const [searchByCategory, setSearchByCategory] = useState("");
-  const [signOut, setSignOut] = useState(false);
+  const [signOut, setSignOut] = useState(true);
 
   React.useEffect(() => {
     try {
       const localStorageAccountList = localStorage.getItem("account-list");
       const localStorageSignOut = localStorage.getItem("sign-out");
       const localStorageAccount = localStorage.getItem("account");
-      let parsedAccountList;
-      let parsedSignOut;
-      let parsedAccount;
 
       if (!localStorageAccountList) {
         localStorage.setItem("account-list", JSON.stringify([]));
-        parsedAccountList = {};
-      } else {
-        parsedAccountList = JSON.parse(localStorageAccountList);
       }
       if (!localStorageAccount) {
         localStorage.setItem("account", JSON.stringify({}));
-        parsedAccount = {};
-      } else {
-        parsedAccountList = JSON.parse(localStorageAccountList);
       }
       if (!localStorageSignOut) {
         localStorage.setItem("sign-out", JSON.stringify(true));
-        parsedSignOut = {};
       } else {
-        parsedSignOut = JSON.parse(localStorageSignOut);
         setSignOut(JSON.parse(localStorage.getItem("sign-out")));
       }
     } catch (error) {
