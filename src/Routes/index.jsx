@@ -33,7 +33,7 @@ function AppRoutes() {
       path: "/my-orders/:id",
       element: context.signOut ? <SignIn /> : <MyOrder />,
     },
-    { path: "/sign-in", element: context.signOut ? <SignIn /> : <SignIn /> },
+    { path: "/sign-in", element: context.signOut ? <SignIn /> : <Home /> },
     {
       path: "/my-account",
       element: context.signOut ? <SignIn /> : <MyAccount />,

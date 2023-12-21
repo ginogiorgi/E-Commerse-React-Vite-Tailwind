@@ -6,21 +6,20 @@ import "./SignIn.css";
 
 function SignIn() {
   const [changeForm, setChangeForm] = useState(true);
-  const [newUsername, setNewUsername] = useState("");
-  const [newEmail, setNewEmail] = useState("");
-  const [newPassword, setNewPassword] = useState("");
   const context = useContext(ShoppingCartContext);
   const navigate = useNavigate();
   const form = useRef(null);
 
   function onSubmit() {
     const accountListValue = JSON.parse(localStorage.getItem("account-list"));
+    const formData = new FormData(form.current);
+    const newAccount = {
+      username: formData.get("username"),
+      email: formData.get("email"),
+      password: formData.get("password"),
+    };
 
-    accountListValue.push({
-      username: newUsername,
-      email: newEmail,
-      password: newPassword,
-    });
+    accountListValue.push(newAccount);
     localStorage.setItem("account-list", JSON.stringify(accountListValue));
     setChangeForm(true);
   }
@@ -79,6 +78,7 @@ function SignIn() {
               onClick={() => {
                 onLogin();
               }}
+              type="submit"
             >
               Login
             </button>
@@ -87,7 +87,6 @@ function SignIn() {
                 Don't have an account?
                 <a
                   className="text-blue-400 font-medium hover:underline p-1"
-                  href="#"
                   onClick={() => {
                     setChangeForm(false);
                   }}
@@ -102,14 +101,12 @@ function SignIn() {
     } else {
       return (
         <div className="flex justify-center items-center w-full h-full form-wrapper">
-          <div>
+          <form ref={form}>
             <h2 className="text-3xl text-center">Sign Up</h2>
             <div className="relative my-8 border-b-2 input-group">
               <input
                 type="text"
-                onInput={(event) => {
-                  setNewUsername(event.target.value);
-                }}
+                name="username"
                 className="w-80 h-10 px-1 bg-transparent outline-none"
                 required
               />
@@ -120,9 +117,7 @@ function SignIn() {
             <div className="relative my-8 border-b-2 input-group">
               <input
                 type="email"
-                onInput={(event) => {
-                  setNewEmail(event.target.value);
-                }}
+                name="email"
                 className="w-80 h-10 px-1 bg-transparent outline-none"
                 required
               />
@@ -133,9 +128,7 @@ function SignIn() {
             <div className="relative my-8 border-b-2 input-group">
               <input
                 type="password"
-                onInput={(event) => {
-                  setNewPassword(event.target.value);
-                }}
+                name="password"
                 className="w-80 h-10 px-1 bg-transparent border-none outline-none"
                 required
               />
@@ -148,6 +141,7 @@ function SignIn() {
               onClick={() => {
                 onSubmit();
               }}
+              type="submit"
             >
               Sign Up
             </button>
@@ -156,7 +150,6 @@ function SignIn() {
                 Already have an account?
                 <a
                   className="text-blue-400 font-medium hover:underline p-1"
-                  href="#"
                   onClick={() => {
                     setChangeForm(true);
                   }}
@@ -165,7 +158,7 @@ function SignIn() {
                 </a>
               </p>
             </div>
-          </div>
+          </form>
         </div>
       );
     }
