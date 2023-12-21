@@ -1,6 +1,5 @@
 import { Layout } from "../../Components/Layout";
-import { useState } from "react";
-import { useContext } from "react";
+import { useState, useContext, useRef } from "react";
 import { ShoppingCartContext } from "../../Context";
 import { useNavigate } from "react-router-dom";
 import "./SignIn.css";
@@ -10,10 +9,9 @@ function SignIn() {
   const [newUsername, setNewUsername] = useState("");
   const [newEmail, setNewEmail] = useState("");
   const [newPassword, setNewPassword] = useState("");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
   const context = useContext(ShoppingCartContext);
   const navigate = useNavigate();
+  const form = useRef(null);
 
   function onSubmit() {
     const accountListValue = JSON.parse(localStorage.getItem("account-list"));
@@ -28,9 +26,10 @@ function SignIn() {
   }
 
   function onLogin() {
+    const formData = new FormData(form.current);
     const loginInfo = {
-      username: username,
-      password: password,
+      username: formData.get("username"),
+      password: formData.get("password"),
     };
     const accountListValue = JSON.parse(localStorage.getItem("account-list"));
     const checkData = accountListValue?.filter(
@@ -50,14 +49,12 @@ function SignIn() {
     if (changeForm) {
       return (
         <div className="flex justify-center items-center w-full h-full form-wrapper">
-          <div>
+          <form ref={form}>
             <h2 className="text-3xl text-center">Login</h2>
             <div className="relative my-8 border-b-2 input-group">
               <input
                 type="text"
-                onInput={(event) => {
-                  setUsername(event.target.value);
-                }}
+                name="username"
                 className="w-80 h-10 px-1 bg-transparent outline-none"
                 required
               />
@@ -68,9 +65,7 @@ function SignIn() {
             <div className="relative my-8 border-b-2 input-group">
               <input
                 type="password"
-                onInput={(event) => {
-                  setPassword(event.target.value);
-                }}
+                name="password"
                 className="w-80 h-10 px-1 bg-transparent border-none outline-none"
                 required
               />
@@ -101,7 +96,7 @@ function SignIn() {
                 </a>
               </p>
             </div>
-          </div>
+          </form>
         </div>
       );
     } else {
