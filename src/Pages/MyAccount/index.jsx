@@ -11,15 +11,21 @@ function MyAccount() {
             <div className="items-center w-96">
               <p className="flex justify-between items-center gap-2 mt-1">
                 <span className="font-light">Username:</span>
-                <span className="font-medium text-2xl">2</span>
+                <span className="font-light">
+                  {JSON.parse(localStorage.getItem("account"))?.username}
+                </span>
               </p>
               <p className="flex justify-between items-center gap-2 mt-1">
                 <span className="font-light">Password: </span>
-                <span className="font-medium text-2xl">2</span>
+                <span className="font-light" type="password">
+                  ••••••••••
+                </span>
               </p>
               <p className="flex justify-between items-center mt-1 gap-2">
                 <span className="font-light">Email: </span>
-                <span className="font-medium text-2xl">3</span>
+                <span className="font-light">
+                  {JSON.parse(localStorage.getItem("account"))?.email}
+                </span>
               </p>
             </div>
             <div className="-mt-1 mb-4 ml-1"></div>

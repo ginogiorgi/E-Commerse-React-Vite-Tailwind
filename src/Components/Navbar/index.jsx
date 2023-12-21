@@ -83,7 +83,7 @@ function NavBar() {
         </li>
       </ul>
       <ul className="flex items-center gap-3">
-        <li className="text-center">
+        <li className="text-center text-myGray">
           <NavLink to="/my-account">
             {JSON.parse(localStorage.getItem("account"))?.email}
           </NavLink>
