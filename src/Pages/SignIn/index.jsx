@@ -2,7 +2,7 @@ import { Layout } from "../../Components/Layout";
 import { useState, useContext, useRef } from "react";
 import { ShoppingCartContext } from "../../Context";
 import { useNavigate } from "react-router-dom";
-import "./SignIn.css";
+import "../../styles/SignIn.css";
 
 function SignIn() {
   const [changeForm, setChangeForm] = useState(true);
