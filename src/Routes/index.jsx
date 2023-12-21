@@ -10,6 +10,9 @@ import { ShoppingCartContext } from "../Context";
 
 function AppRoutes() {
   const context = useContext(ShoppingCartContext);
+
+  context.setSignOut(JSON.parse(localStorage.getItem("sign-out")));
+
   return useRoutes([
     { path: "/", element: context.signOut ? <SignIn /> : <Home /> },
     { path: "/men-clothing", element: context.signOut ? <SignIn /> : <Home /> },

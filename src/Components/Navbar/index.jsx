@@ -173,7 +173,7 @@ function NavBar() {
           <ul className="flex items-center gap-3">
             <li className="text-center">
               <NavLink to="/my-account">
-                {JSON.parse(localStorage.getItem("account")).email}
+                {JSON.parse(localStorage.getItem("account"))?.email}
               </NavLink>
             </li>
             <li>

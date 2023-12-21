@@ -16,6 +16,7 @@ function ShoppingCartProvider({ children }) {
   const [items, setItems] = useState([]);
   const [searchByTitle, setSearchByTitle] = useState("");
   const [searchByCategory, setSearchByCategory] = useState("");
+  const [signOut, setSignOut] = useState(false);
 
   React.useEffect(() => {
     try {
@@ -48,10 +49,6 @@ function ShoppingCartProvider({ children }) {
       console.log(error);
     }
   }, []);
-
-  const [signOut, setSignOut] = useState(
-    JSON.parse(localStorage.getItem("sign-out"))
-  );
 
   useEffect(() => {
     const fetchData = async () => {
