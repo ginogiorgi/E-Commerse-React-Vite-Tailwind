@@ -17,6 +17,7 @@ function SignIn() {
       username: formData.get("username"),
       email: formData.get("email"),
       password: formData.get("password"),
+      orders: [],
     };
 
     accountListValue.push(newAccount);

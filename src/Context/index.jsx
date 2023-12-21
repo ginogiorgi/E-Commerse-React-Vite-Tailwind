@@ -29,6 +29,8 @@ function ShoppingCartProvider({ children }) {
       }
       if (!localStorageAccount) {
         localStorage.setItem("account", JSON.stringify({}));
+      } else {
+        setOrder(JSON.parse(localStorage.getItem("account")).orders);
       }
       if (!localStorageSignOut) {
         localStorage.setItem("sign-out", JSON.stringify(true));

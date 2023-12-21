@@ -10,7 +10,10 @@ function MyOrder() {
   let index = window.location.pathname.substring(
     window.location.pathname.lastIndexOf("/") + 1
   );
+  const accountInfo = JSON.parse(localStorage.getItem("account"));
 
+  accountInfo.orders = context.order;
+  localStorage.setItem("account", JSON.stringify(accountInfo));
   if (index === "last") {
     index = context.order?.length - 1;
   }

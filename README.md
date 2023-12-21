@@ -5,13 +5,14 @@ Proyecto hecho en el Curso de React.js con Vite.js y TailwindCSS, con muchisima 
 ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎
 
 - Estilizados personalizados como sombreados y modo oscuro para todas las páginas y componentes.
-- Añadido de animaciones para el carrito y para la Product Card.
+- Añadido de animaciones para el carrito , Product Card, login y Sign-up .
 - Llamado a una API personalizada.
 - Responsive Grids
 - Poder comprar más de un solo producto
 - Añadido de iconos
 - Scrollbars personalizadas
 - Código más conciso y legible
+- Poder tener multiples cuentas
 
 <h2 align="left">English</h2>
 Project made in the React.js Course with Vite.js and TailwindCSS, with a lot of customization of styles and functions such as:
