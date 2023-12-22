@@ -7,7 +7,21 @@ function MyAccount() {
   const accountInfo = JSON.parse(localStorage.getItem("account"));
   const form = useRef(null);
 
-  function changeAccount() {}
+  function changeAccount() {
+    const formData = new FormData(form.current);
+    const newAccountData = {
+      username: formData.get("username"),
+      email: formData.get("email"),
+      password: formData.get("password"),
+      orders: JSON.parse(localStorage.getItem("account"))?.orders,
+      id: JSON.parse(localStorage.getItem("account"))?.id,
+    };
+    const newAccountList = JSON.parse(localStorage.getItem("account-list"));
+
+    newAccountList.splice(accountInfo.id, 1, newAccountData);
+    localStorage.setItem("account", JSON.stringify(newAccountData));
+    localStorage.setItem("account-list", JSON.stringify(newAccountList));
+  }
 
   function renderView() {
     if (changeForm) {
