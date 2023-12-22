@@ -32,7 +32,7 @@ function OrderCard(props) {
           context.setItemsPrice(context.itemsPrice + props.props.price);
         }}
       >
-        <PlusIcon className="h-4 w-4 text-white stroke-white hover:text-[#008000] hover:stroke-[#008000]" />
+        <PlusIcon className="h-4 w-4 text-white stroke-white hover:text-green-500 hover:stroke-green-500" />
       </div>
     );
     renderMinusSmallIcon = (
