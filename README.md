@@ -15,6 +15,7 @@ Proyecto hecho en el Curso de React.js con Vite.js y TailwindCSS, con muchisima 
 - Poder tener multiples cuentas
 - Las ordenes se guardan en cada cuenta
 - Se pueden eliminar ordenes
+- Se pueden cambiar los datos de la cuenta
 
 <h2 align="left">English</h2>
 Project made in the React.js Course with Vite.js and TailwindCSS, with a lot of customization of styles and functions such as:

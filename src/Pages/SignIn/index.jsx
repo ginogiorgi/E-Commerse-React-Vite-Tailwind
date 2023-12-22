@@ -6,12 +6,13 @@ import "../../styles/SignIn.css";
 
 function SignIn() {
   const [changeForm, setChangeForm] = useState(true);
+  const [errorInfo, setErrorInfo] = useState("");
   const context = useContext(ShoppingCartContext);
   const navigate = useNavigate();
   const form = useRef(null);
+  const accountListValue = JSON.parse(localStorage.getItem("account-list"));
 
-  function onSubmit() {
-    const accountListValue = JSON.parse(localStorage.getItem("account-list"));
+  function onSubmit(event) {
     const formData = new FormData(form.current);
     const newAccount = {
       username: formData.get("username"),
@@ -20,25 +21,37 @@ function SignIn() {
       orders: [],
       id: accountListValue ? accountListValue.length : 0,
     };
+    const checkData = accountListValue?.filter(
+      (account) => account.username === newAccount.username
+    );
 
-    accountListValue.push(newAccount);
-    localStorage.setItem("account-list", JSON.stringify(accountListValue));
-    setChangeForm(true);
+    if (checkData.length > 0) {
+      event.preventDefault();
+      setErrorInfo("Username already in use");
+    } else {
+      setErrorInfo("");
+      accountListValue.push(newAccount);
+      localStorage.setItem("account-list", JSON.stringify(accountListValue));
+      setChangeForm(true);
+    }
   }
 
-  function onLogin() {
+  function onLogin(event) {
     const formData = new FormData(form.current);
     const loginInfo = {
       username: formData.get("username"),
       password: formData.get("password"),
     };
-    const accountListValue = JSON.parse(localStorage.getItem("account-list"));
     const checkData = accountListValue?.filter(
-      (account) =>
-        account.username === loginInfo.username &&
-        account.password === loginInfo.password
+      (account) => account.username === loginInfo.username
     );
-    if (checkData.length > 0) {
+    if (checkData.length === 0) {
+      event.preventDefault();
+      setErrorInfo("Username don't exist");
+    } else if (checkData[0].password !== loginInfo.password) {
+      event.preventDefault();
+      setErrorInfo("Wrong password");
+    } else {
       localStorage.setItem("sign-out", JSON.stringify(false));
       localStorage.setItem("account", JSON.stringify(checkData[0]));
       context.setSignOut(false);
@@ -77,8 +90,8 @@ function SignIn() {
             <div className="-mt-1 mb-4 ml-1"></div>
             <button
               className="relative w-full h-10 bg-blue-400 text-black font-medium cursor-pointer rounded-lg shadow-lg shadow-blue-400/20"
-              onClick={() => {
-                onLogin();
+              onClick={(event) => {
+                onLogin(event);
               }}
               type="submit"
             >
@@ -96,6 +109,9 @@ function SignIn() {
                   Sign Up
                 </a>
               </p>
+            </div>
+            <div className="text-sm text-center my-4 text-red-600">
+              <p>{errorInfo}</p>
             </div>
           </form>
         </div>
@@ -140,10 +156,9 @@ function SignIn() {
             </div>
             <button
               className="relative w-full h-10 bg-blue-400 text-black font-medium cursor-pointer rounded-lg shadow-lg shadow-blue-400/20"
-              onClick={() => {
-                onSubmit();
+              onClick={(event) => {
+                onSubmit(event);
               }}
-              type="submit"
             >
               Sign Up
             </button>
@@ -159,6 +174,9 @@ function SignIn() {
                   Sign In
                 </a>
               </p>
+            </div>
+            <div className="text-sm text-center my-4 text-red-600">
+              <p>{errorInfo}</p>
             </div>
           </form>
         </div>
