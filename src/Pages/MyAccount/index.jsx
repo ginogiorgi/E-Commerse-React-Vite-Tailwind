@@ -4,23 +4,44 @@ import { useState, useRef } from "react";
 
 function MyAccount() {
   const [changeForm, setChangeForm] = useState(true);
+  const [errorInfo, setErrorInfo] = useState("");
   const accountInfo = JSON.parse(localStorage.getItem("account"));
+  const accountListValue = JSON.parse(localStorage.getItem("account-list"));
   const form = useRef(null);
 
-  function changeAccount() {
+  function changeAccount(event) {
     const formData = new FormData(form.current);
-    const newAccountData = {
+    const newAccount = {
       username: formData.get("username"),
       email: formData.get("email"),
       password: formData.get("password"),
       orders: JSON.parse(localStorage.getItem("account"))?.orders,
       id: JSON.parse(localStorage.getItem("account"))?.id,
     };
-    const newAccountList = JSON.parse(localStorage.getItem("account-list"));
+    const checkDataUsername = accountListValue?.filter(
+      (account) => account.username === newAccount.username
+    );
+    const checkDataEmail = accountListValue?.filter(
+      (account) => account.email === newAccount.email
+    );
 
-    newAccountList.splice(accountInfo.id, 1, newAccountData);
-    localStorage.setItem("account", JSON.stringify(newAccountData));
-    localStorage.setItem("account-list", JSON.stringify(newAccountList));
+    if (
+      checkDataUsername.length > 0 &&
+      accountInfo.username !== newAccount.username
+    ) {
+      event.preventDefault();
+      setErrorInfo("Username already in use");
+    } else if (
+      checkDataEmail.length > 0 &&
+      accountInfo.email !== newAccount.email
+    ) {
+      event.preventDefault();
+      setErrorInfo("Email already in use");
+    } else {
+      accountListValue.splice(accountInfo.id, 1, newAccount);
+      localStorage.setItem("account", JSON.stringify(newAccount));
+      localStorage.setItem("account-list", JSON.stringify(accountListValue));
+    }
   }
 
   function renderView() {
@@ -115,8 +136,8 @@ function MyAccount() {
             </div>
             <button
               className="relative w-full h-10 bg-blue-400 text-black font-medium cursor-pointer rounded-lg shadow-lg shadow-blue-400/20"
-              onClick={() => {
-                changeAccount();
+              onClick={(event) => {
+                changeAccount(event);
               }}
               type="submit"
             >
@@ -131,6 +152,9 @@ function MyAccount() {
                 Back
               </button>
             </NavLink>
+            <div className="text-sm text-center my-4 text-red-600">
+              <p>{errorInfo}</p>
+            </div>
           </form>
         </div>
       );
