@@ -5,28 +5,6 @@ import { PlusIcon } from "@heroicons/react/24/solid";
 function Card(data) {
   const context = useContext(ShoppingCartContext);
   const cart = document.getElementById("cart");
-  const isUserSignOut = JSON.parse(localStorage.getItem("sign-out"));
-
-  function renderView() {
-    if (!isUserSignOut) {
-      return (
-        <button
-          className="absolute top-2 right-2 bg-myGray rounded-full hover:animate-spin-mine"
-          onClick={(event) => {
-            event.stopPropagation();
-            cart.className = `cursor-pointer flex gap-3 items-center ${
-              context.isProductCartOpen ? "" : "animate-pingSlow"
-            }`;
-            getNewCartProduct(data.data);
-            context.setItemQuantity(++context.itemQuantity);
-            context.setItemsPrice(context.itemsPrice + data.data.price);
-          }}
-        >
-          <PlusIcon className="h-6 w-6 text-black stroke-black" />
-        </button>
-      );
-    }
-  }
 
   function getNewCartProduct(productData) {
     const foundProduct = context.cartProducts.find(
@@ -61,7 +39,20 @@ function Card(data) {
           src={data.data.image}
           alt="img"
         />
-        {renderView()}
+        <button
+          className="absolute top-2 right-2 bg-myGray rounded-full hover:animate-spin-mine"
+          onClick={(event) => {
+            event.stopPropagation();
+            cart.className = `cursor-pointer flex gap-3 items-center ${
+              context.isProductCartOpen ? "" : "animate-pingSlow"
+            }`;
+            getNewCartProduct(data.data);
+            context.setItemQuantity(++context.itemQuantity);
+            context.setItemsPrice(context.itemsPrice + data.data.price);
+          }}
+        >
+          <PlusIcon className="h-6 w-6 text-black stroke-black" />
+        </button>
       </figure>
       <p className="flex justify-between w-full h-1/5 items-center p-3 pb-4">
         <span className="text-sm font-light truncate">{data.data.title}</span>
