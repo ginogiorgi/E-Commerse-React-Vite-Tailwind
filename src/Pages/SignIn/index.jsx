@@ -21,13 +21,19 @@ function SignIn() {
       orders: [],
       id: accountListValue ? accountListValue.length : 0,
     };
-    const checkData = accountListValue?.filter(
+    const checkDataUsername = accountListValue?.filter(
       (account) => account.username === newAccount.username
     );
+    const checkDataEmail = accountListValue?.filter(
+      (account) => account.email === newAccount.email
+    );
 
-    if (checkData.length > 0) {
+    if (checkDataUsername.length > 0) {
       event.preventDefault();
       setErrorInfo("Username already in use");
+    } else if (checkDataEmail.length > 0) {
+      event.preventDefault();
+      setErrorInfo("Email already in use");
     } else {
       setErrorInfo("");
       accountListValue.push(newAccount);
