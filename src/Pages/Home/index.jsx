@@ -21,8 +21,8 @@ function Home() {
       );
     } else if (context.searchByTitle.length > 0) {
       return (
-        <div className="absolute left-0 right-0 ml-auto mr-auto w-28 top-2/4">
-          No se encontraron productos
+        <div className="absolute left-0 right-0 ml-auto mr-auto w-40 top-1/3">
+          <h2 className="text-4xl text-center mb-20">Products not found</h2>
         </div>
       );
     }
