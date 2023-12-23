@@ -25,7 +25,7 @@ function MyOrders() {
   return (
     <Layout>
       <div className="flex items-center relative w-80 justify-center mb-4">
-        <h1 className="font-medium text-xl">My Orders</h1>
+        <h2 className="text-3xl text-center">My Orders</h2>
       </div>
       {renderView()}
     </Layout>

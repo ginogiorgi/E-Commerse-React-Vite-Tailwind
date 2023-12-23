@@ -43,7 +43,7 @@ function CheckoutSideMenu() {
           <OrderCard props={item} handleDelete={handleDelete} key={item.id} />
         ))}
       </div>
-      <div className="">
+      <div>
         <p className="flex justify-between items-center m-3">
           <span className="font-light">Total Products: </span>
           <span className="font-medium text-2xl">{context.itemQuantity}</span>

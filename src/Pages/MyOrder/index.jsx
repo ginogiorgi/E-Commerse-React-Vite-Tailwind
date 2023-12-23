@@ -28,11 +28,11 @@ function MyOrder() {
 
   return (
     <Layout>
-      <div className="flex items-center relative w-80 justify-center mb-2">
+      <div className="flex items-center relative w-96 justify-center mb-2 h-14">
         <Link to="/my-orders" className="absolute left-0">
-          <ChevronLeftIcon className="h-8 w-8 text-white stroke-white" />
+          <ChevronLeftIcon className="h-10 w-10 text-white stroke-white" />
         </Link>
-        <h1>My Order</h1>
+        <h2 className="text-3xl text-center">My Order</h2>
         <Link
           to="/my-orders"
           className="absolute right-0"
@@ -40,24 +40,24 @@ function MyOrder() {
             deleteOrder();
           }}
         >
-          <XMarkIcon className="h-8 w-8 text-white stroke-white hover:text-[#FF0000] hover:stroke-[#FF0000]" />
+          <XMarkIcon className="h-10 w-10 text-white stroke-white hover:text-[#FF0000] hover:stroke-[#FF0000]" />
         </Link>
       </div>
-      <div className="h-auto w-80">
+      <div className="h-auto w-96">
         {context.order?.[index]?.products.map((item) => (
           <OrderCard props={item} key={item.id} />
         ))}
       </div>
-      <div className="flex items-center w-96 justify-between">
-        <p className="flex justify-between items-center gap-2 mt-1">
-          <span className="font-light">Total Products: </span>
-          <span className="font-medium text-2xl">
+      <div className="w-96">
+        <p className="flex justify-between items-center m-3">
+          <span className="text-lg font-medium">Total Products: </span>
+          <span className="font-bold text-xl">
             {context.order[context.order.length - 1].totalProducts}
           </span>
         </p>
-        <p className="flex justify-between items-center mt-1 gap-2">
-          <span className="font-light">Total Price: </span>
-          <span className="font-medium text-2xl">
+        <p className="flex justify-between items-center m-3">
+          <span className="text-lg font-medium">Total Price: </span>
+          <span className="font-bold text-xl">
             $ {context.order[context.order.length - 1].totalPrice.toFixed(2)}
           </span>
         </p>
