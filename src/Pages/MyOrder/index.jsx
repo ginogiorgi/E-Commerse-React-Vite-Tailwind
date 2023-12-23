@@ -25,7 +25,6 @@ function MyOrder() {
     accountInfo.orders = context.order;
     localStorage.setItem("account", JSON.stringify(accountInfo));
   }
-  console.log(context.order);
 
   return (
     <Layout>
