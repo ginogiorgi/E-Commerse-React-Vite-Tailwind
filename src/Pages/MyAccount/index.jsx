@@ -1,9 +1,10 @@
 import { Layout } from "../../Components/Layout";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useState, useRef } from "react";
 import "../../styles/SignIn.css";
 
 function MyAccount() {
+  const navigate = useNavigate();
   const [changeForm, setChangeForm] = useState(true);
   const [errorInfo, setErrorInfo] = useState("");
   const accountInfo = JSON.parse(localStorage.getItem("account"));
@@ -42,6 +43,7 @@ function MyAccount() {
       accountListValue.splice(accountInfo.id, 1, newAccount);
       localStorage.setItem("account", JSON.stringify(newAccount));
       localStorage.setItem("account-list", JSON.stringify(accountListValue));
+      navigate("/");
     }
   }
 
