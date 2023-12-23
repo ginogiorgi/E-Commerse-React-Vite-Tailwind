@@ -1,6 +1,7 @@
 import { Layout } from "../../Components/Layout";
 import { NavLink } from "react-router-dom";
 import { useState, useRef } from "react";
+import "../../styles/SignIn.css";
 
 function MyAccount() {
   const [changeForm, setChangeForm] = useState(true);
@@ -47,30 +48,27 @@ function MyAccount() {
   function renderView() {
     if (changeForm) {
       return (
-        <div className="flex justify-center items-center w-full h-full">
-          <div>
-            <h2 className="text-3xl text-center">My Account</h2>
-            <div className="items-center w-96">
-              <p className="flex justify-between items-center gap-2 mt-1">
-                <span className="font-light">Username:</span>
-                <span className="font-light">
-                  {JSON.parse(localStorage.getItem("account"))?.username}
-                </span>
-              </p>
-              <p className="flex justify-between items-center gap-2 mt-1">
-                <span className="font-light">Password: </span>
-                <span className="font-light" type="password">
-                  ••••••••••
-                </span>
-              </p>
-              <p className="flex justify-between items-center mt-1 gap-2">
-                <span className="font-light">Email: </span>
-                <span className="font-light">
-                  {JSON.parse(localStorage.getItem("account"))?.email}
-                </span>
-              </p>
-            </div>
-            <div className="-mt-1 mb-4 ml-1"></div>
+        <div className="justify-center items-center w-full h-full">
+          <h2 className="text-3xl text-center mb-20">My Account</h2>
+          <div className="flex my-8 justify-between">
+            <span className="font-medium text-lg">Username:</span>
+            <span className="text-base font-light">
+              {JSON.parse(localStorage.getItem("account"))?.username}
+            </span>
+          </div>
+          <div className="flex my-8 justify-between">
+            <span className="font-medium text-lg">Password: </span>
+            <span className="text-base font-light" type="password">
+              •••••••
+            </span>
+          </div>
+          <div className="flex my-8 justify-between">
+            <span className="font-medium text-lg">Email: </span>
+            <span className="text-base font-light">
+              {JSON.parse(localStorage.getItem("account"))?.email}
+            </span>
+          </div>
+          <div className="flex w-full justify-between">
             <NavLink
               to="/"
               onClick={() => {
@@ -78,12 +76,12 @@ function MyAccount() {
                 context.setSignOut(true);
               }}
             >
-              <button className="relative w-full h-10 bg-blue-400 text-black font-medium cursor-pointer rounded-lg shadow-lg shadow-blue-400/20">
+              <button className="bg-red-600 text-black font-medium cursor-pointer rounded-lg shadow-lg shadow-red-600/20 h-12 w-36">
                 Sign out
               </button>
             </NavLink>
             <button
-              className="relative w-full h-10 bg-blue-400 text-black font-medium cursor-pointer rounded-lg shadow-lg shadow-blue-400/20"
+              className="bg-blue-400 text-black font-medium cursor-pointer rounded-lg shadow-lg shadow-blue-400/20 h-12 w-36"
               onClick={() => {
                 setChangeForm(false);
               }}
@@ -95,9 +93,9 @@ function MyAccount() {
       );
     } else {
       return (
-        <div className="flex justify-center items-center w-full h-full form-wrapper">
+        <div className="flex justify-center items-center w-full h-full">
           <form ref={form}>
-            <h2 className="text-3xl text-center">Edit account</h2>
+            <h2 className="text-3xl text-center mb-14">Edit account</h2>
             <div className="relative my-8 border-b-2 input-group">
               <input
                 type="text"
@@ -134,24 +132,26 @@ function MyAccount() {
                 Password
               </label>
             </div>
-            <button
-              className="relative w-full h-10 bg-blue-400 text-black font-medium cursor-pointer rounded-lg shadow-lg shadow-blue-400/20"
-              onClick={(event) => {
-                changeAccount(event);
-              }}
-              type="submit"
-            >
-              Accept
-            </button>
-            <NavLink
-              onClick={() => {
-                setChangeForm(true);
-              }}
-            >
-              <button className="relative w-full h-10 bg-blue-400 text-black font-medium cursor-pointer rounded-lg shadow-lg shadow-blue-400/20">
-                Back
+            <div className="flex w-full justify-between">
+              <NavLink
+                onClick={() => {
+                  setChangeForm(true);
+                }}
+              >
+                <button className="bg-blue-400 text-black font-medium cursor-pointer rounded-lg shadow-lg shadow-blue-400/20 h-12 w-36">
+                  Back
+                </button>
+              </NavLink>
+              <button
+                className="bg-green-600 text-black font-medium cursor-pointer rounded-lg shadow-lg shadow-blue-400/20 h-12 w-36"
+                onClick={(event) => {
+                  changeAccount(event);
+                }}
+                type="submit"
+              >
+                Accept
               </button>
-            </NavLink>
+            </div>
             <div className="text-sm text-center my-4 text-red-600">
               <p>{errorInfo}</p>
             </div>
