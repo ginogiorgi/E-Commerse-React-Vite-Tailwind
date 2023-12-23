@@ -1,4 +1,4 @@
-import { Layout } from "../../Components/Layout";
+import { ShoppingBagIcon } from "@heroicons/react/24/solid";
 import { useState, useContext, useRef } from "react";
 import { ShoppingCartContext } from "../../Context";
 import { useNavigate } from "react-router-dom";
@@ -190,11 +190,15 @@ function SignIn() {
     }
   }
   return (
-    <Layout>
-      <div className="relative w-[400px] h-[500px] shadow-lg shadow-myGray/40 rounded-lg p-10">
+    <div className="h-full w-full flex items-center min-h-[100vh] justify-between">
+      <div className="font-semibold text-6xl text-blue-400 ml-44 text-center bg-white rounded-full h-[400px] w-[400px] shadow-myGray/40 shadow-2xl">
+        <ShoppingBagIcon className="h-[218px] text-blue-400 block mr-auto ml-auto mt-10 w-[200]" />
+        <p>Shopify</p>
+      </div>
+      <div className="relative w-[400px] h-[500px] shadow-lg shadow-myGray/40 rounded-lg p-10 mr-44">
         {renderView()}
       </div>
-    </Layout>
+    </div>
   );
 }
 
