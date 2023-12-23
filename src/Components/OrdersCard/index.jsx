@@ -2,7 +2,7 @@ import { ChevronRightIcon } from "@heroicons/react/24/solid";
 
 function OrdersCard(props) {
   return (
-    <div className="flex justify-between items-center p-4 mb-3 border border-myGray/25  rounded-lg w-80">
+    <div className="flex justify-between items-center p-4 mb-3 border border-myGray/25  rounded-lg w-96 h-24">
       <div className="w-full flex justify-between">
         <p className="flex flex-col">
           <span className="font-light">{props.date}</span>
