@@ -1,7 +1,7 @@
 <h1 align="left">E-commerse made with React, tailwind Framework and Vite </h2>
 
 <h2 align="left">Link</h2>
-https://ginogiorgi.github.io/reactWithViteAndTailwindCSS/
+https://ginogiorgi.github.io/E-Commerse-React-Vite-Tailwind/
 
 
 <h2 align="left">Español</h2>
