@@ -2,7 +2,7 @@
   "name": "reactwithviteandtailwindcss",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://ginogiorgi.github.io/reactWithViteAndTailwindCSS/",
+  "homepage": "https://ginogiorgi.github.io/E-Commerse-React-Vite-Tailwind/",
   "type": "module",
   "scripts": {
     "dev": "vite",
