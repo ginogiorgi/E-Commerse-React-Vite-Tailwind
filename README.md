@@ -3,7 +3,6 @@
 <h2 align="left">Link</h2>
 https://ginogiorgi.github.io/E-Commerse-React-Vite-Tailwind/
 
-
 <h2 align="left">Español</h2>
 Proyecto hecho en el Curso de React.js con Vite.js y TailwindCSS, con muchisima personalización propia de estilos y funciones tales como:
 ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎
@@ -42,12 +41,12 @@ Project made in the React.js Course with Vite.js and TailwindCSS, with a lot of 
 
 <h2 align="left">Photos</h2>
 
-<img src="https://github.com/ginogiorgi/reactWithViteAndTailwindCSS/blob/main/screenshots/log-in.PNG?raw=true" />
-<img src="https://github.com/ginogiorgi/reactWithViteAndTailwindCSS/blob/main/screenshots/sign-up.PNG?raw=true" />
-<img src="https://github.com/ginogiorgi/reactWithViteAndTailwindCSS/blob/main/screenshots/main-page.PNG?raw=true" />
-<img src="https://github.com/ginogiorgi/reactWithViteAndTailwindCSS/blob/main/screenshots/product-detail.PNG?raw=true" />
-<img src="https://github.com/ginogiorgi/reactWithViteAndTailwindCSS/blob/main/screenshots/checkout-menu.PNG?raw=true" />
-<img src="https://github.com/ginogiorgi/reactWithViteAndTailwindCSS/blob/main/screenshots/my-orders.PNG?raw=true" />
-<img src="https://github.com/ginogiorgi/reactWithViteAndTailwindCSS/blob/main/screenshots/my-order.PNG?raw=true" />
-<img src="https://github.com/ginogiorgi/reactWithViteAndTailwindCSS/blob/main/screenshots/my-account.PNG?raw=true" />
-<img src="https://github.com/ginogiorgi/reactWithViteAndTailwindCSS/blob/main/screenshots/edit-account.PNG?raw=true" />
+<img src="https://github.com/ginogiorgi/E-Commerse-React-Vite-Tailwind/blob/main/screenshots/log-in.PNG?raw=true" />
+<img src="https://github.com/ginogiorgi/E-Commerse-React-Vite-Tailwind/blob/main/screenshots/sign-up.PNG?raw=true" />
+<img src="https://github.com/ginogiorgi/E-Commerse-React-Vite-Tailwind/blob/main/screenshots/main-page.PNG?raw=true" />
+<img src="https://github.com/ginogiorgi/E-Commerse-React-Vite-Tailwind/blob/main/screenshots/product-detail.PNG?raw=true" />
+<img src="https://github.com/ginogiorgi/E-Commerse-React-Vite-Tailwind/blob/main/screenshots/checkout-menu.PNG?raw=true" />
+<img src="https://github.com/ginogiorgi/E-Commerse-React-Vite-Tailwind/blob/main/screenshots/my-orders.PNG?raw=true" />
+<img src="https://github.com/ginogiorgi/E-Commerse-React-Vite-Tailwind/blob/main/screenshots/my-order.PNG?raw=true" />
+<img src="https://github.com/ginogiorgi/E-Commerse-React-Vite-Tailwind/blob/main/screenshots/my-account.PNG?raw=true" />
+<img src="https://github.com/ginogiorgi/E-Commerse-React-Vite-Tailwind/blob/main/screenshots/edit-account.PNG?raw=true" />
