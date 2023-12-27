@@ -15,19 +15,19 @@ function AppRoutes() {
   return useRoutes([
     {
       path: "/login",
-      element: context.signOut ? <SignIn /> : <Navigate to="/" />,
+      element: context.signOut ? <SignIn /> : <Navigate to="/home" />,
     },
     {
-      path: "/",
+      path: "/home",
       element: context.signOut ? <Navigate to="/login" /> : <Home />,
       children: [
-        { path: "/men-clothing", element: <Home /> },
+        { path: "/home/men-clothing", element: <Home /> },
         {
-          path: "/women-clothing",
+          path: "/home/women-clothing",
           element: <Home />,
         },
-        { path: "/electronics", element: <Home /> },
-        { path: "/jewelery", element: <Home /> },
+        { path: "/home/electronics", element: <Home /> },
+        { path: "/home/jewelery", element: <Home /> },
       ],
     },
     {

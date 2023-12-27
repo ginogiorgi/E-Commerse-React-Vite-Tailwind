@@ -1,14 +1,13 @@
 import { ShoppingBagIcon } from "@heroicons/react/24/solid";
 import { useState, useContext, useRef } from "react";
 import { ShoppingCartContext } from "../../Context";
-import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import "../../styles/SignIn.css";
 
 function SignIn() {
   const [changeForm, setChangeForm] = useState(true);
   const [errorInfo, setErrorInfo] = useState("");
   const context = useContext(ShoppingCartContext);
-  const navigate = useNavigate();
   const form = useRef(null);
   const accountListValue = JSON.parse(localStorage.getItem("account-list"));
 
@@ -61,7 +60,7 @@ function SignIn() {
       localStorage.setItem("sign-out", JSON.stringify(false));
       localStorage.setItem("account", JSON.stringify(checkData[0]));
       context.setSignOut(false);
-      navigate("/");
+      <Navigate to="/home" />;
     }
   }
 

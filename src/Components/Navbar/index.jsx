@@ -15,7 +15,7 @@ function NavBar() {
       <ul className="flex items-center gap-3">
         <li className="font-semibold text-lg text-blue-400">
           <NavLink
-            to="/"
+            to="/home"
             onClick={() => {
               context.setSearchByCategory("");
               context.setIsProductDetailOpen(false);
@@ -27,7 +27,7 @@ function NavBar() {
         </li>
         <li className="text-center">
           <NavLink
-            to="/men-clothing"
+            to="/home/men-clothing"
             onClick={() => {
               context.setSearchByCategory("men's clothing");
               context.setIsProductDetailOpen(false);
@@ -41,7 +41,7 @@ function NavBar() {
         </li>
         <li className="text-center">
           <NavLink
-            to="/women-clothing"
+            to="/home/women-clothing"
             onClick={() => {
               context.setSearchByCategory("women's clothing");
               context.setIsProductDetailOpen(false);
@@ -55,7 +55,7 @@ function NavBar() {
         </li>
         <li className="text-center">
           <NavLink
-            to="/electronics"
+            to="/home/electronics"
             onClick={() => {
               context.setSearchByCategory("electronics");
               context.setIsProductDetailOpen(false);
@@ -69,7 +69,7 @@ function NavBar() {
         </li>
         <li className="text-center">
           <NavLink
-            to="/jewelery"
+            to="/home/jewelery"
             onClick={() => {
               context.setSearchByCategory("jewelery");
               context.setIsProductDetailOpen(false);
