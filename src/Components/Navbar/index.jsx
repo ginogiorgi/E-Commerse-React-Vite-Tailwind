@@ -8,9 +8,8 @@ function NavBar() {
 
   return (
     <nav
-      className={`${
-        context.signOut ? "hidden" : ""
-      } flex justify-between z-10 w-full py-1 px-4 text-sm font-light top-0 absolute`}
+      className={`${context.signOut ? "hidden" : ""
+        } flex justify-between z-10 w-full py-1 px-4 text-sm font-light top-0 absolute`}
     >
       <ul className="flex items-center gap-3">
         <li className="font-semibold text-lg text-blue-400">
