@@ -7,7 +7,7 @@ import { SignIn } from "../Pages/SignIn";
 import { Notfound } from "../Pages/NotFound";
 import { useContext } from "react";
 import { ShoppingCartContext } from "../Context";
-import { Navigate } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 
 function AppRoutes() {
   const context = useContext(ShoppingCartContext);
@@ -19,7 +19,8 @@ function AppRoutes() {
   return useRoutes([
     { path: "/login", element: isLoggedOff ? <SignIn /> : < Navigate to='/' /> },
     {
-      path: '/', element: isLoggedOff ? < Navigate to='/login' /> : <Home />, children: [
+      path: '/', element: isLoggedOff ? < Navigate to='/login' /> : <Outlet />, children: [
+        { path: "/", element: <Home /> },
         { path: "/men-clothing", element: <Home /> },
         {
           path: "/women-clothing",
@@ -44,9 +45,10 @@ function AppRoutes() {
           path: "/my-account",
           element: <MyAccount />,
         },
-        { path: "/*", element: <Notfound /> },
       ]
-    }
+    },
+    { path: "/*", element: <Notfound /> },
+
 
   ]);
 }
