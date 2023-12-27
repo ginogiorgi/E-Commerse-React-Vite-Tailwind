@@ -7,20 +7,20 @@ import { SignIn } from "../Pages/SignIn";
 import { Notfound } from "../Pages/NotFound";
 import { useContext } from "react";
 import { ShoppingCartContext } from "../Context";
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 function AppRoutes() {
   const context = useContext(ShoppingCartContext);
 
-
-  const isLoggedOff = context.signOut
-
-
   return useRoutes([
-    { path: "/login", element: isLoggedOff ? <SignIn /> : < Navigate to='/' /> },
     {
-      path: '/', element: isLoggedOff ? < Navigate to='/login' /> : <Outlet />, children: [
-        { path: "/", element: <Home /> },
+      path: "/login",
+      element: context.signOut ? <SignIn /> : <Navigate to="/" />,
+    },
+    {
+      path: "/",
+      element: context.signOut ? <Navigate to="/login" /> : <Home />,
+      children: [
         { path: "/men-clothing", element: <Home /> },
         {
           path: "/women-clothing",
@@ -28,28 +28,32 @@ function AppRoutes() {
         },
         { path: "/electronics", element: <Home /> },
         { path: "/jewelery", element: <Home /> },
-        { path: "/my-order", element: <MyOrder /> },
-        {
-          path: "/my-orders",
-          element: <MyOrders />,
-        },
-        {
-          path: "/my-orders/last",
-          element: <MyOrder />,
-        },
-        {
-          path: "/my-orders/:id",
-          element: <MyOrder />,
-        },
-        {
-          path: "/my-account",
-          element: <MyAccount />,
-        },
-      ]
+      ],
     },
-    { path: "/*", element: <Notfound /> },
-
-
+    {
+      path: "/my-orders",
+      element: context.signOut ? <Navigate to="/login" /> : <MyOrders />,
+    },
+    {
+      path: "/my-orders/last",
+      element: context.signOut ? <Navigate to="/login" /> : <MyOrder />,
+    },
+    {
+      path: "/my-orders/:id",
+      element: context.signOut ? <Navigate to="/login" /> : <MyOrder />,
+    },
+    {
+      path: "/my-account",
+      element: context.signOut ? <Navigate to="/login" /> : <MyAccount />,
+    },
+    {
+      path: "/*",
+      element: context.signOut ? <Navigate to="/login" /> : <Notfound />,
+    },
+    {
+      path: "/my-order",
+      element: context.signOut ? <Navigate to="/login" /> : <MyOrder />,
+    },
   ]);
 }
 

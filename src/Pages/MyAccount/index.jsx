@@ -133,15 +133,14 @@ function MyAccount() {
               </label>
             </div>
             <div className="flex w-full justify-between">
-              <NavLink
+              <button
+                className="bg-blue-400 text-black font-medium cursor-pointer rounded-lg shadow-lg shadow-blue-400/20 h-12 w-36"
                 onClick={() => {
                   setChangeForm(true);
                 }}
               >
-                <button className="bg-blue-400 text-black font-medium cursor-pointer rounded-lg shadow-lg shadow-blue-400/20 h-12 w-36">
-                  Back
-                </button>
-              </NavLink>
+                Back
+              </button>
               <button
                 className="bg-green-600 text-black font-medium cursor-pointer rounded-lg shadow-lg shadow-blue-400/20 h-12 w-36"
                 onClick={(event) => {
