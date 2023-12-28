@@ -16,7 +16,7 @@ function ShoppingCartProvider({ children }) {
   const [items, setItems] = useState([]);
   const [searchByTitle, setSearchByTitle] = useState("");
   const [searchByCategory, setSearchByCategory] = useState("");
-  const [signOut, setSignOut] = useState(true);
+  const [signOut, setSignOut] = useState(false);
 
   React.useEffect(() => {
     try {
@@ -34,6 +34,7 @@ function ShoppingCartProvider({ children }) {
       }
       if (!localStorageSignOut) {
         localStorage.setItem("sign-out", JSON.stringify(true));
+        setSignOut(JSON.parse(localStorage.getItem("sign-out")));
       } else {
         setSignOut(JSON.parse(localStorage.getItem("sign-out")));
       }

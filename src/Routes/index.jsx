@@ -26,8 +26,8 @@ function AppRoutes() {
           path: "/women-clothing",
           element: <Home />,
         },
-        { path: "/electronics", element: <Home /> },
         { path: "/jewelery", element: <Home /> },
+        { path: "/electronics", element: <Home /> },
       ],
     },
     {
