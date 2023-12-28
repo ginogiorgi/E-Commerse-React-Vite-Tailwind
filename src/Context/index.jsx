@@ -56,6 +56,22 @@ function ShoppingCartProvider({ children }) {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    switch (window.location.pathname) {
+      case "/E-Commerse-React-Vite-Tailwind/men-clothing":
+        setSearchByCategory("men's clothing");
+        break;
+      case "/E-Commerse-React-Vite-Tailwind/women-clothing":
+        setSearchByCategory("women's clothing");
+        break;
+      case "/E-Commerse-React-Vite-Tailwind/electronics":
+        setSearchByCategory("electronics");
+        break;
+      case "/E-Commerse-React-Vite-Tailwind/jewelery":
+        setSearchByCategory("jewelery");
+        break;
+    }
+  }, []);
   let filteredCategory;
 
   if (searchByCategory) {
