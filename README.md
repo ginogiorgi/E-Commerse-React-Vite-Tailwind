@@ -1,52 +1,41 @@
-<h1 align="left">E-commerse made with React, tailwind Framework and Vite </h2>
+# E-Commerce App — React + Vite + Tailwind
 
-<h2 align="left">Link</h2>
-https://ginogiorgi.github.io/E-Commerse-React-Vite-Tailwind/
+A full-featured e-commerce web app built with React, Vite and Tailwind CSS.
 
-<h2 align="left">Español</h2>
-Proyecto hecho en el Curso de React.js con Vite.js y TailwindCSS, con muchisima personalización propia de estilos y funciones tales como:
-‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎
+🌐 **[Live demo →](https://ginogiorgi.github.io/E-Commerse-React-Vite-Tailwind/)**
 
-- Estilizados personalizados como sombreados y modo oscuro para todas las páginas y componentes.
-- Añadido de animaciones para el carrito, Product Card, login y Sign-up.
-- Llamado a una API personalizada.
-- Responsive Grids
-- Poder comprar más de un solo producto
-- Añadido de iconos
-- Scrollbars personalizadas
-- Código más conciso y legible
-- Poder tener múltiples cuentas
-- Las órdenes se guardan en cada cuenta
-- Se pueden eliminar órdenes
-- Se pueden cambiar los datos de la cuenta
-- Mensajes de error para la pestaña LogIn, SignUp y Edit Account
+## Features
 
-<h2 align="left">English</h2>
-Project made in the React.js Course with Vite.js and TailwindCSS, with a lot of customization of styles and functions such as:
-‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎
+- Multi-account authentication (register, login, logout)
+- Shopping cart with quantity management
+- Full order history per account — create, view and delete orders
+- Account profile editing
+- Custom API integration with category filtering
+- Dark mode across all pages and components
+- Smooth animations (cart, product card, auth forms)
+- Fully responsive with custom scrollbars
+- Form validation with error messages
 
-- Custom stylizations such as shading and dark mode for all pages and components.
-- Added animations for the cart, Product Card, login and Sign-up.
-- Call to a custom API.
-- Responsive Grids
-- Be able to buy more than a single product
-- Added icons
-- Custom scrollbars
-- More concise and readable code
-- Be able to have multiple accounts
-- Orders are saved in each account
-- Orders can be deleted
-- Account details can be changed
-- Error messages for LogIn, SignUp and Edit Account tab
+## Stack
 
-<h2 align="left">Photos</h2>
+- [React 18](https://react.dev/) + [React Router 6](https://reactrouter.com/)
+- [Vite](https://vitejs.dev/)
+- [Tailwind CSS 3](https://tailwindcss.com/)
+- [@heroicons/react](https://heroicons.com/)
 
-<img src="https://github.com/ginogiorgi/E-Commerse-React-Vite-Tailwind/blob/main/screenshots/log-in.PNG?raw=true" />
-<img src="https://github.com/ginogiorgi/E-Commerse-React-Vite-Tailwind/blob/main/screenshots/sign-up.PNG?raw=true" />
-<img src="https://github.com/ginogiorgi/E-Commerse-React-Vite-Tailwind/blob/main/screenshots/main-page.PNG?raw=true" />
-<img src="https://github.com/ginogiorgi/E-Commerse-React-Vite-Tailwind/blob/main/screenshots/product-detail.PNG?raw=true" />
-<img src="https://github.com/ginogiorgi/E-Commerse-React-Vite-Tailwind/blob/main/screenshots/checkout-menu.PNG?raw=true" />
-<img src="https://github.com/ginogiorgi/E-Commerse-React-Vite-Tailwind/blob/main/screenshots/my-orders.PNG?raw=true" />
-<img src="https://github.com/ginogiorgi/E-Commerse-React-Vite-Tailwind/blob/main/screenshots/my-order.PNG?raw=true" />
-<img src="https://github.com/ginogiorgi/E-Commerse-React-Vite-Tailwind/blob/main/screenshots/my-account.PNG?raw=true" />
-<img src="https://github.com/ginogiorgi/E-Commerse-React-Vite-Tailwind/blob/main/screenshots/edit-account.PNG?raw=true" />
+## Run locally
+
+```bash
+npm install
+npm run dev
+```
+
+## Screenshots
+
+| Login | Main | Product detail |
+|---|---|---|
+| ![Login](screenshots/log-in.PNG) | ![Main](screenshots/main-page.PNG) | ![Detail](screenshots/product-detail.PNG) |
+
+| Cart | Orders | Account |
+|---|---|---|
+| ![Cart](screenshots/checkout-menu.PNG) | ![Orders](screenshots/my-orders.PNG) | ![Account](screenshots/my-account.PNG) |
